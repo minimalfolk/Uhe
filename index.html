@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compression Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Image Compression Tool</h1>
+
+    <!-- Drag and Drop Area -->
+    <div class="upload-box" id="uploadBox">
+      <p>Drag and drop your image here or click to upload.</p>
+      <input type="file" id="imageInput" accept="image/*" hidden>
+    </div>
+
+    <!-- Original Image Preview -->
+    <div id="originalPreview" class="preview-container">
+      <h3>Original Image</h3>
+      <img id="originalImage" src="#" alt="Original Image" hidden>
+      <p id="originalDetails"></p>
+    </div>
+
+    <!-- Compression Options -->
+    <div class="compression-options">
+      <label for="compressRange">Reduce image size by (1-99%):</label>
+      <input type="number" id="compressRange" min="1" max="99" value="50">
+      <button id="compressBtn" disabled>Reduce Now</button>
+    </div>
+
+    <!-- Compressed Image Preview -->
+    <div id="compressedPreview" class="preview-container" hidden>
+      <h3>Compressed Image</h3>
+      <img id="compressedImage" src="#" alt="Compressed Image" hidden>
+      <p id="compressedDetails"></p>
+      <p id="sizeSaved"></p>
+      <button id="downloadBtn" disabled>Download Now</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
