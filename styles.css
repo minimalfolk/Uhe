@@ -1,4 +1,20 @@
 /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
 /* Header Styles */
 .sticky-header {
     display: flex;
@@ -13,34 +29,12 @@
     z-index: 1000;
 }
 
-/* Logo Styles */
 .sticky-header .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff; /* Ensure logo is white */
     cursor: default; /* Prevent it from acting like a link */
     text-decoration: none; /* Remove underline */
-}
-
-/* Mode Toggle Button Styles */
-.sticky-header .mode-toggle {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-/* Navigation Link Styles */
-.sticky-header .nav-links a {
-    text-decoration: none; /* Remove underline from nav links */
-    color: #fff; /* Ensure links are white */
-    font-size: 1rem;
-    margin-left: 1rem; /* Add space between links */
-}
-
-.sticky-header .nav-links a:hover {
-    color: #ffcc00; /* Optional: Add hover color for nav links */
 }
 
 .sticky-header .hamburger-menu {
@@ -55,8 +49,9 @@
 }
 
 .sticky-header .nav-links a {
-    color: #fff;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from nav links */
+    color: #fff; /* Ensure links are white */
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -89,22 +84,6 @@
     text-decoration: underline;
 }
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f8f9fa;
-    color: #333;
-}
-
 /* Main Content Styles */
 main {
     flex: 1;
@@ -132,6 +111,7 @@ main {
     margin-bottom: 20px;
 }
 
+/* Upload Box */
 .upload-box {
     border: 2px dashed #0288d1;
     padding: 40px;
@@ -311,6 +291,7 @@ main {
 
 .how-to li {
     margin-bottom: 10px;
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -324,5 +305,30 @@ main {
 
     .preview-container img {
         max-width: 90%;
+    }
+
+    .sticky-header .hamburger-menu {
+        display: block;
+    }
+
+    .sticky-header .nav-links {
+        display: none;
+    }
+
+    .sticky-header .hamburger-menu.active + .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #0288d1;
+        padding: 1rem;
+        width: 200px;
+        z-index: 1000;
+    }
+
+    .sticky-header .nav-links a {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #fff;
     }
 }
