@@ -3,49 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Compression Tool</title>
+  <meta name="description" content="Compress images online instantly. Reduce image size without losing quality. Supports JPEG, PNG, WebP, and more. Fast, free & easy-to-use.">
+  <meta name="keywords" content="reduce image, compress image online, free image compressor, resize photo, online image optimization">
+  <meta name="author" content="ReducePic.in">
+  <title>ReducePic - Compress & Optimize Images Online</title>
+  <link rel="canonical" href="https://reducepic.in">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <h1>ReducePic</h1>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </header>
+
+  <!-- Step-by-Step Guide -->
+  <section class="steps">
+    <h2>How to Reduce Your Image Size?</h2>
+    <ul>
+      <li>📤 <strong>Step 1:</strong> Upload your image (JPEG, PNG, WebP).</li>
+      <li>⚙️ <strong>Step 2:</strong> Choose compression settings.</li>
+      <li>📥 <strong>Step 3:</strong> Download or share your optimized image.</li>
+    </ul>
+  </section>
+
+  <!-- Upload Box -->
   <div class="container">
-    <h1>Image Compression Tool</h1>
+    <div class="upload-box" id="uploadBox">
+      <p>Click or drag an image to upload</p>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+    <img id="preview" class="preview-img" alt="Preview" style="display: none;">
+    <p id="imageSize"></p>
 
-    <!-- Drag and Drop Area -->
-    <div class="upload-box" id="uploadBox" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
-      <p>Drag and drop your image here or click to upload.</p>
-      <input type="file" id="imageInput" accept="image/*" hidden>
+    <!-- Compression Controls -->
+    <button id="compressButton" onclick="compressImage()" style="display: none;">Compress Image</button>
+
+    <!-- Compression Progress -->
+    <div class="processing" id="processing" style="display: none;">
+      <div class="progress-circle"></div>
+      <p>Processing...</p>
     </div>
 
-    <!-- Original Image Preview -->
-    <div id="originalPreview" class="preview-container" hidden>
-      <h3>Original Image</h3>
-      <img id="originalImage" alt="Original Image">
-      <p id="originalDetails"></p>
-    </div>
-
-    <!-- Compression Options -->
-    <div class="compression-options">
-      <label for="compressRange">Reduce image size by:</label>
-      <input type="range" id="compressRange" min="1" max="99" value="50" oninput="updateCompressionValue()">
-      <span id="compressValue">50%</span>
-      <button id="compressBtn" disabled>Reduce Now</button>
-    </div>
-
-    <!-- Loading Indicator -->
-    <div id="loadingIndicator" hidden>
-      <p>Compressing...</p>
-    </div>
-
-    <!-- Compressed Image Preview -->
-    <div id="compressedPreview" class="preview-container" hidden>
-      <h3>Compressed Image</h3>
-      <img id="compressedImage" alt="Compressed Image">
-      <p id="compressedDetails"></p>
-      <p id="sizeSaved" aria-live="polite"></p>
-      <button id="downloadBtn" disabled>Download Now</button>
-      <button id="shareBtn" disabled>Share Image</button>
+    <!-- Download & Share -->
+    <img id="compressedImg" class="compressed-img" alt="Compressed Image" style="display: none;">
+    <p id="stats"></p>
+    <div class="download-share">
+      <button id="downloadButton" style="display: none;">Download Now</button>
+      <button onclick="shareOnFacebook()">📢 Share on Facebook</button>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ReducePic.in - The Best Free Image Compressor</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
