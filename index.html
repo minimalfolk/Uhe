@@ -7,73 +7,75 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Image Compression Tool">
     <meta property="og:description" content="Easily compress images without losing quality. Get instant results with our simple tool.">
-    <meta property="og:image" content="image-compression-tool-image.jpg">
+    <meta property="og:image" content="https://example.com/image-compression-tool-image.jpg">
     <meta property="og:url" content="https://example.com/reduce-image">
     <meta name="twitter:title" content="Image Compression Tool">
     <meta name="twitter:description" content="Compress images easily and reduce size without losing quality.">
-    <meta name="twitter:image" content="image-compression-tool-image.jpg">
+    <meta name="twitter:image" content="https://example.com/image-compression-tool-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <title>Reduce Image Size | Compress Images Online</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="script.js" as="script">
     <link rel="icon" href="favicon.ico">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ImageObject",
-      "url": "https://example.com/images/your-image.jpg",
-      "height": "800",
-      "width": "600",
-      "caption": "Reduce your image efficiently."
+      "@type": "WebApplication",
+      "name": "Reduce Image Size",
+      "description": "Compress images easily and reduce size without losing quality.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Web",
+      "url": "https://example.com/reduce-image"
     }
     </script>
 </head>
 <body>
-
     <header class="sticky-header">
         <div class="logo" onclick="window.location.href='index.html'">Reduce Pic</div>
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-        <nav class="nav-links">
-            <a href="privacy">Privacy</a>
-            <a href="about">About</a>
-            <a href="terms">Terms & Conditions</a>
-            <a href="contact">Contact</a>
+        <button class="hamburger-menu" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms & Conditions</a>
         </nav>
     </header>
 
-    <main>
+    <main aria-label="Image Compression Tool">
         <section class="compress-image">
             <h1>Reduce Image Size</h1>
             <p>Upload an image and reduce its size by percentage.</p>
             
             <!-- Drag and Drop Area -->
-            <div class="upload-box" id="uploadBox" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+            <div class="upload-box" id="uploadBox">
                 <p>Drag and drop or click here to upload Image.</p>
                 <input type="file" id="imageInput" accept="image/*" hidden>
             </div>
 
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" hidden></div>
+
             <!-- Original Image Preview -->
-            <div id="originalPreview" class="preview-container" hidden>
-                <h3>Original Image</h3>
-                <img id="originalImage" alt="Original Image">
-                <p id="originalDetails"></p>
-            </div>
+            <figure id="originalPreview" class="preview-container" hidden>
+                <img id="originalImage" alt="Uploaded image preview">
+                <figcaption id="originalDetails"></figcaption>
+            </figure>
 
             <!-- Compression Options -->
             <div class="compression-options">
                 <label for="compressRange">Reduce image size by:</label>
-                <input type="range" id="compressRange" min="1" max="99" value="50" oninput="updateCompressionValue()">
+                <input type="range" id="compressRange" min="1" max="99" value="50">
                 <span id="compressValue">50%</span>
                 <button id="compressBtn" disabled>Reduce Now</button>
             </div>
+
             <!-- Format Selection -->
             <div class="format-selection">
                 <label for="formatSelect">Convert to:</label>
-               <select id="formatSelect">
-                <option value="image/jpeg">JPG</option>
-                <option value="image/png">PNG</option>
-                <option value="image/gif">GIF</option>
-              </select>
+                <select id="formatSelect">
+                    <option value="image/jpeg">JPG</option>
+                    <option value="image/png">PNG</option>
+                    <option value="image/gif">GIF</option>
+                </select>
             </div>
 
             <!-- Loading Indicator -->
@@ -82,18 +84,16 @@
             </div>
 
             <!-- Compressed Image Preview -->
-            <div id="compressedPreview" class="preview-container" hidden>
-                <h3>Reduced Image</h3>
-                <img id="compressedImage" alt="Compressed Image">
-                <p id="compressedDetails"></p>
-                <p id="sizeSaved" aria-live="polite"></p>
-                <p id="newSize" aria-live="polite"></p>
+            <figure id="compressedPreview" class="preview-container" hidden>
+                <img id="compressedImage" alt="Compressed image preview">
+                <figcaption id="compressedDetails"></figcaption>
+                <p id="sizeSaved"></p>
                 <button id="downloadBtn" disabled>Download Now</button>
-            </div>
+            </figure>
         </section>
 
         <!-- How-to Section -->
-        <section class="how-to">
+        <section class="how-to" aria-label="How to use the tool">
             <h2>How to Reduce Image Size</h2>
             <ol>
                 <li>Upload your image by clicking or dragging it to the upload box.</li>
@@ -104,7 +104,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq">
+        <section class="faq" aria-label="Frequently Asked Questions">
             <h2>Frequently Asked Questions</h2>
             <ul>
                 <li><strong>What formats can I upload?</strong> We support JPG, PNG, and WebP.</li>
@@ -115,15 +115,19 @@
     </main>
 
     <footer class="sticky-footer">
-        <div class="footer-links">
-            <a href="about">About</a>
-            <a href="contact">Contact</a>
-            <a href="privacy">Privacy</a>
-            <a href="terms">Terms & Conditions</a>
+        <div class="footer-links" aria-label="Footer navigation">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms & Conditions</a>
         </div>
-        <p>©2025 Reduce Pic</p>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
     </footer>
 
     <script src="script.js" defer></script>
+    <script>
+        // Dynamically update the copyright year
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
