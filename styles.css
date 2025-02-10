@@ -1,4 +1,95 @@
 /* General Reset */
+/* Header Styles */
+.sticky-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #0288d1; /* Blue */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo Styles */
+.sticky-header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff; /* Ensure logo is white */
+    cursor: default; /* Prevent it from acting like a link */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Mode Toggle Button Styles */
+.sticky-header .mode-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Navigation Link Styles */
+.sticky-header .nav-links a {
+    text-decoration: none; /* Remove underline from nav links */
+    color: #fff; /* Ensure links are white */
+    font-size: 1rem;
+    margin-left: 1rem; /* Add space between links */
+}
+
+.sticky-header .nav-links a:hover {
+    color: #ffcc00; /* Optional: Add hover color for nav links */
+}
+
+.sticky-header .hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sticky-header .nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.sticky-header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sticky-header .nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+.sticky-footer {
+    background-color: #0288d1; /* Blue */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
 * {
     margin: 0;
     padding: 0;
