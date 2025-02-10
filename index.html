@@ -1,64 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Compress images online instantly. Reduce image size without losing quality. Supports JPEG, PNG, WebP, and more. Fast, free & easy-to-use.">
-  <meta name="keywords" content="reduce image, compress image online, free image compressor, resize photo, online image optimization">
-  <meta name="author" content="ReducePic.in">
-  <title>ReducePic - Compress & Optimize Images Online</title>
-  <link rel="canonical" href="https://reducepic.in">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reduce your image size easily without losing quality. Compress images by percentage or size with fast and easy steps.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Compression Tool">
+    <meta property="og:description" content="Easily compress images without losing quality. Get instant results with our simple tool.">
+    <meta property="og:image" content="image-compression-tool-image.jpg">
+    <meta property="og:url" content="https://example.com/reduce-image">
+    <meta name="twitter:title" content="Image Compression Tool">
+    <meta name="twitter:description" content="Compress images easily and reduce size without losing quality.">
+    <meta name="twitter:image" content="image-compression-tool-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Reduce Image Size | Compress Images Online</title>
+    <link rel="stylesheet" href="styles/reduce.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preload" href="script/main.js" as="script">
+    <link rel="icon" href="favicon.ico">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageObject",
+      "url": "https://example.com/images/your-image.jpg",
+      "height": "800",
+      "width": "600",
+      "caption": "Reduce your image efficiently."
+    }
+    </script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>ReducePic</h1>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-  </header>
 
-  <!-- Step-by-Step Guide -->
-  <section class="steps">
-    <h2>How to Reduce Your Image Size?</h2>
-    <ul>
-      <li>📤 <strong>Step 1:</strong> Upload your image (JPEG, PNG, WebP).</li>
-      <li>⚙️ <strong>Step 2:</strong> Choose compression settings.</li>
-      <li>📥 <strong>Step 3:</strong> Download or share your optimized image.</li>
-    </ul>
-  </section>
+    <header class="sticky-header">
+        <div class="logo" onclick="window.location.href='index.html'">Image Tools</div>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <nav class="nav-links">
+            <a href="privacy">Privacy</a>
+            <a href="about">About</a>
+            <a href="terms">Terms & Conditions</a>
+            <a href="contact">Contact</a>
+        </nav>
+    </header>
 
-  <!-- Upload Box -->
-  <div class="container">
-    <div class="upload-box" id="uploadBox">
-      <p>Click or drag an image to upload</p>
-      <input type="file" id="fileInput" accept="image/*" hidden>
-    </div>
-    <img id="preview" class="preview-img" alt="Preview" style="display: none;">
-    <p id="imageSize"></p>
+    <main>
+        <section class="compress-image">
+            <h1>Reduce Image Size</h1>
+            <p>Upload an image and reduce its size by percentage.</p>
+            
+            <!-- Drag and Drop Area -->
+            <div class="upload-box" id="uploadBox" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+                <p>Drag and drop or click here to upload Image.</p>
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </div>
 
-    <!-- Compression Controls -->
-    <button id="compressButton" onclick="compressImage()" style="display: none;">Compress Image</button>
+            <!-- Original Image Preview -->
+            <div id="originalPreview" class="preview-container" hidden>
+                <h3>Original Image</h3>
+                <img id="originalImage" alt="Original Image">
+                <p id="originalDetails"></p>
+            </div>
 
-    <!-- Compression Progress -->
-    <div class="processing" id="processing" style="display: none;">
-      <div class="progress-circle"></div>
-      <p>Processing...</p>
-    </div>
+            <!-- Compression Options -->
+            <div class="compression-options">
+                <label for="compressRange">Reduce image size by:</label>
+                <input type="range" id="compressRange" min="1" max="99" value="50" oninput="updateCompressionValue()">
+                <span id="compressValue">50%</span>
+                <button id="compressBtn" disabled>Reduce Now</button>
+            </div>
+            <!-- Format Selection -->
+            <div class="format-selection">
+                <label for="formatSelect">Convert to:</label>
+               <select id="formatSelect">
+                <option value="image/jpeg">JPG</option>
+                <option value="image/png">PNG</option>
+                <option value="image/gif">GIF</option>
+              </select>
+            </div>
 
-    <!-- Download & Share -->
-    <img id="compressedImg" class="compressed-img" alt="Compressed Image" style="display: none;">
-    <p id="stats"></p>
-    <div class="download-share">
-      <button id="downloadButton" style="display: none;">Download Now</button>
-      <button onclick="shareOnFacebook()">📢 Share on Facebook</button>
-    </div>
-  </div>
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" hidden>
+                <p>Reducing Your Image...</p>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 ReducePic.in - The Best Free Image Compressor</p>
-  </footer>
+            <!-- Compressed Image Preview -->
+            <div id="compressedPreview" class="preview-container" hidden>
+                <h3>Reduced Image</h3>
+                <img id="compressedImage" alt="Compressed Image">
+                <p id="compressedDetails"></p>
+                <p id="sizeSaved" aria-live="polite"></p>
+                <p id="newSize" aria-live="polite"></p>
+                <button id="downloadBtn" disabled>Download Now</button>
+            </div>
+        </section>
 
-  <script src="script.js"></script>
+        <!-- How-to Section -->
+        <section class="how-to">
+            <h2>How to Reduce Image Size</h2>
+            <ol>
+                <li>Upload your image by clicking or dragging it to the upload box.</li>
+                <li>Choose the compression method (percentage or custom size).</li>
+                <li>Click "Reduce Now" to start the compression process.</li>
+                <li>Once compressed, you can download or share the image.</li>
+            </ol>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <ul>
+                <li><strong>What formats can I upload?</strong> We support JPG, PNG, and WebP.</li>
+                <li><strong>What is the maximum file size?</strong> The maximum file size is 10MB.</li>
+                <li><strong>Can I undo the compression?</strong> Once compressed, the changes cannot be undone, but you can always compress again with different settings.</li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Get Started Now</h2>
+        <p>Optimize your images effortlessly with our free online tools.</p>
+        <a href="#tools" class="cta-button">Explore Tools</a>
+    </section>
+
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy</a>
+            <a href="terms">Terms & Conditions</a>
+        </div>
+        <p>©2025 Image Tools</p>
+    </footer>
+
+    <script src="script/reduce.js" defer></script>
 </body>
 </html>
