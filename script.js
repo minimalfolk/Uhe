@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const sizeSaved = document.getElementById("sizeSaved");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const navLinks = document.querySelector(".nav-links");
 
     let originalFile, originalFileSize, compressedBlob;
 
@@ -148,5 +150,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
+    });
+
+    // Hamburger menu functionality
+    hamburgerMenu.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+
+    // Close the menu if a link is clicked (optional)
+    navLinks.addEventListener("click", function () {
+        navLinks.classList.remove("active");
     });
 });
