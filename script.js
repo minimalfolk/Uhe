@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sizeSaved = document.getElementById("sizeSaved");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
-    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
     const navLinks = document.querySelector(".nav-links");
 
     let originalFile, originalFileSize, compressedBlob;
@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         const savedSize = originalFileSize - newSize;
 
                         compressedDetails.innerHTML = `Dimensions: ${newWidth} x ${newHeight}`;
-                        sizeSaved.innerHTML = `Saved: ${formatSize(savedSize)}`;
-                        compressedDetails.innerHTML += `<br>New Size: ${formatSize(newSize)}`;
+                        sizeSaved.innerHTML = `Size saved: <strong>${formatSize(savedSize)}</strong>`;
+                        compressedDetails.innerHTML += `<br><strong>New Size:</strong> ${formatSize(newSize)}`;
 
                         downloadBtn.disabled = false;
                     },
@@ -152,13 +152,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(downloadLink);
     });
 
-    // Hamburger menu functionality
+    // Hamburger menu functionality (Fix)
     hamburgerMenu.addEventListener("click", function () {
         navLinks.classList.toggle("active");
     });
 
-    // Close the menu if a link is clicked (optional)
-    navLinks.addEventListener("click", function () {
-        navLinks.classList.remove("active");
+    // Close menu when a link is clicked
+    navLinks.addEventListener("click", function (event) {
+        if (event.target.tagName === "A") {
+            navLinks.classList.remove("active");
+        }
     });
 });
