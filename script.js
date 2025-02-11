@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         compressedDetails.innerHTML = `
                         Dimensions: ${newWidth} x ${newHeight} <br>
                         Size saved: ${formatSize(savedSize)} <br>
-                        New size: <strong>${formatSize(newSize)}</strong>
+                        <strong>New size: ${formatSize(newSize)}</strong>
                      `;
 
                         downloadBtn.disabled = false;
