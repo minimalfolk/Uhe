@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | ReducePic.in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="logo" onclick="window.location.href='./'">Reduce Pic</div>
+        <nav class="nav-links">
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+            <a href="./privacy">Privacy</a>
+            <a href="./terms">Terms & Conditions</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="privacy-section">
+            <h1>Privacy Policy</h1>
+            <p>We respect your privacy and are committed to protecting the personal information you share with us. This policy outlines how we collect, use, and safeguard your information.</p>
+            <h2>Information We Collect</h2>
+            <p>We collect personal data such as your name and email address when you contact us. We may also collect technical data such as your IP address to improve our service.</p>
+            <h2>How We Use Your Information</h2>
+            <p>We use your information solely to provide you with our services and respond to inquiries. We do not share your data with third parties unless required by law.</p>
+        </section>
+    </main>
+
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+            <a href="./privacy">Privacy</a>
+            <a href="./terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
