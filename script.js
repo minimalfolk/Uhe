@@ -120,10 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         const savedSize = originalFileSize - newSize;
 
                         compressedDetails.innerHTML = `
-                            Dimensions: ${newWidth} x ${newHeight} <br>
-                            Size saved: ${formatSize(savedSize)} <br>
-                            New size: <strong>${formatSize(newSize)}</strong>
-                        `;
+                        Dimensions: ${newWidth} x ${newHeight} <br>
+                        Size saved: ${formatSize(savedSize)} <br>
+                        New size: <strong>${formatSize(newSize)}</strong>
+                     `;
 
                         downloadBtn.disabled = false;
                     },
