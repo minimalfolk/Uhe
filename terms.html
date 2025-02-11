@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | ReducePic.in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="logo" onclick="window.location.href='./'">Reduce Pic</div>
+        <nav class="nav-links">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms & Conditions</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="terms-section">
+            <h1>Terms and Conditions</h1>
+            <p>By using Reduce Pic, you agree to the following terms:</p>
+            <h2>Usage</h2>
+            <p>You may use the tool to compress your images for personal use only. Redistribution or commercial use of the images is prohibited.</p>
+            <h2>Liability</h2>
+            <p>We do not take responsibility for any loss of data or any issues that arise from the use of our services. Use at your own risk.</p>
+        </section>
+    </main>
+
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+            <a href="./privacy">Privacy</a>
+            <a href="./terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
