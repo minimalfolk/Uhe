@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = e.target.result;
 
             img.onload = function () {
-                originalDetails.innerHTML = `Dimensions: ${img.width} x ${img.height}<br>Size: ${formatSize(originalFileSize)}`;
+                originalDetails.innerHTML = `Dimensions: ${img.width} x ${img.height}`;
                 compressBtn.disabled = false;
             };
         };
@@ -119,9 +119,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         const newSize = blob.size;
                         const savedSize = originalFileSize - newSize;
 
-                        compressedDetails.innerHTML = `Dimensions: ${newWidth} x ${newHeight}`;
-                        sizeSaved.innerHTML = `Size saved: <strong>${formatSize(savedSize)}</strong>`;
-                        compressedDetails.innerHTML += `<br><strong>New Size:</strong> ${formatSize(newSize)}`;
+                        compressedDetails.innerHTML = `
+                            Dimensions: ${newWidth} x ${newHeight} <br>
+                            Size saved: ${formatSize(savedSize)} <br>
+                            New size: ${formatSize(newSize)}
+                        `;
 
                         downloadBtn.disabled = false;
                     },
