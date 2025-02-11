@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ReducePic.in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="logo" onclick="window.location.href='/'">Reduce Pic</div>
+        <nav class="nav-links">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms & Conditions</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h1>About Reduce Pic</h1>
+            <p>Reduce Pic is a free online tool that allows you to quickly and easily reduce the size of images without losing quality. Whether you want to upload a profile picture or optimize images for websites, Reduce Pic is your go-to solution.</p>
+            <p>Our mission is to provide a fast, simple, and effective way to compress your images without sacrificing quality, so you can save bandwidth and storage space.</p>
+        </section>
+    </main>
+
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
