@@ -355,6 +355,69 @@ main {
     color: #666;
 }
 
+.page-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-container h1 {
+    font-size: 2rem;
+    color: #0288d1;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.page-container p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.page-container ul {
+    list-style: disc;
+    margin: 1rem 0 1rem 1.5rem;
+    color: #666;
+}
+
+.page-container li {
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Page Specific Styles */
+.contact-info {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0288d1;
+}
+
+.contact-info a {
+    color: #0288d1;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-info a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1.5rem;
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .compress-image {
