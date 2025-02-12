@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             img.onload = function () {
                 originalDetails.innerHTML = `Dimensions: ${img.width} x ${img.height}<br>Size: ${formatSize(originalFileSize)}`;
                 compressBtn.disabled = false;
-                updateCompressionDetails();
+                updateCompressionDetails(); // Update compression details immediately after loading the image
             };
         };
 
@@ -164,10 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         const savedSize = originalFileSize - newSize;
 
                         compressedDetails.innerHTML = `
-                        Dimensions: ${newWidth} x ${newHeight} <br>
-                        Size saved: ${formatSize(savedSize)} <br>
-                        <strong>New size: ${formatSize(newSize)}</strong>
-                     `;
+                            Dimensions: ${newWidth} x ${newHeight} <br>
+                            Size saved: ${formatSize(savedSize)} <br>
+                            <strong>New size: ${formatSize(newSize)}</strong>
+                        `;
 
                         downloadBtn.disabled = false;
 
