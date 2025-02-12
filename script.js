@@ -154,26 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(downloadLink);
     });
 
-    // Hamburger menu functionality (Fix)
-    hamburgerMenu.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-    });
-
-    // Close menu when a link is clicked
-    navLinks.addEventListener("click", function (event) {
-        if (event.target.tagName === "A") {
-            navLinks.classList.remove("active");
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links");
-
+    // Hamburger menu functionality (FIXED)
     if (hamburgerMenu && navLinks) {
         // Toggle menu on click
-        hamburgerMenu.addEventListener("click", function () {
+        hamburgerMenu.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent event bubbling
             navLinks.classList.toggle("active");
         });
 
@@ -184,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Close menu when clicking on a nav link (for better UX)
+        // Close menu when clicking a nav link
         navLinks.addEventListener("click", function (event) {
             if (event.target.tagName === "A") {
                 navLinks.classList.remove("active");
