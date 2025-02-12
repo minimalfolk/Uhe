@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Estimate new file size based on compression percentage
         const estimatedNewSize = originalFileSize * (compressPercentage / 100);
-        const estimatedSavedSize = originalFileSize - estimatedNewSize;
         let readableSize = formatSize(estimatedNewSize);
 
         // Update the size display
