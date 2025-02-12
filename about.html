@@ -8,17 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+
     <!-- Header -->
-    <header class="sticky-header">
-    <a href="./" class="logo">ReducePic</a>
-    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links">
-        <a href="./privacy">Privacy</a>
-        <a href="./about" class="active">About</a>
-        <a href="./terms">Terms & Conditions</a>
-        <a href="./contact">Contact</a>
-    </nav>
-    </header>
+    <div id="header-container"></div>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -27,26 +19,52 @@
             <p>Effortless image optimization, conversion, and editing – all in one place.</p>
         </div>
     </section>
+
     <main>
         <section class="about-section">
-            <h1>About Reduce Pic</h1>
+            <h1>About ReducePic</h1>
             <p>Reduce Pic is a free online tool that allows you to quickly and easily reduce the size of images without losing quality. Whether you want to upload a profile picture or optimize images for websites, Reduce Pic is your go-to solution.</p>
             <p>Our mission is to provide a fast, simple, and effective way to compress your images without sacrificing quality, so you can save bandwidth and storage space.</p>
         </section>
     </main>
 
-    <footer class="sticky-footer">
-        <div class="footer-links">
-            <a href="about">About</a>
-            <a href="contact">Contact</a>
-            <a href="privacy">Privacy</a>
-            <a href="terms">Terms & Conditions</a>
-        </div>
-        <p>©<span id="currentYear"></span> Reduce Pic</p>
-    </footer>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
+    <!-- JavaScript to Load Header and Footer -->
     <script>
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load Header
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+
+                    // Add Hamburger Menu Functionality
+                    const hamburgerMenu = document.querySelector(".hamburger-menu");
+                    const navLinks = document.querySelector(".nav-links");
+
+                    hamburgerMenu.addEventListener("click", function () {
+                        navLinks.classList.toggle("active");
+                    });
+
+                    // Close menu when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                            navLinks.classList.remove("active");
+                        }
+                    });
+                });
+
+            // Load Footer
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                    document.getElementById("currentYear").textContent = new Date().getFullYear();
+                });
+        });
     </script>
+
 </body>
 </html>
