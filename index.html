@@ -47,50 +47,52 @@
             <p>Upload an image and reduce its size by percentage.</p>
             
             <!-- Drag and Drop Area -->
-            <div class="upload-box" id="uploadBox">
-                <p>Drag and drop or click here to upload Image.</p>
-                <input type="file" id="imageInput" accept="image/*" hidden>
-            </div>
+<div class="upload-box" id="uploadBox">
+    <p>Drag and drop or click here to upload Image.</p>
+    <input type="file" id="imageInput" accept="image/*" hidden>
+</div>
 
-            <!-- Error Message -->
-            <div id="errorMessage" class="error-message" hidden></div>
+<!-- Error Message -->
+<div id="errorMessage" class="error-message" hidden></div>
 
-            <!-- Original Image Preview -->
-            <figure id="originalPreview" class="preview-container" hidden>
-                <img id="originalImage" alt="Uploaded image preview">
-                <figcaption id="originalDetails"></figcaption>
-            </figure>
+<!-- Original Image Preview -->
+<figure id="originalPreview" class="preview-container" hidden>
+    <img id="originalImage" alt="Uploaded image preview">
+    <figcaption id="originalDetails"></figcaption>
+</figure>
 
-            <!-- Compression Options Section -->
+<!-- Compression Options Section -->
 <div class="compression-options">
     <label for="compressRange">Reduce image size by:</label>
     <input type="range" id="compressRange" min="1" max="99" value="50">
     <span id="compressValue">50%</span> <!-- Compression percentage -->
     <p id="estimatedSize">You will get size: 0 KB</p> <!-- Display estimated size after compression -->
+    
+    <!-- Format Selection (Moved above Reduce Now button) -->
+    <div class="format-selection">
+        <label for="formatSelect">Convert to:</label>
+        <select id="formatSelect">
+            <option value="image/jpeg">JPG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/gif">GIF</option>
+        </select>
+    </div>
+
     <button id="compressBtn" disabled>Reduce Now</button>
 </div>
 
-            <!-- Format Selection -->
-            <div class="format-selection">
-                <label for="formatSelect">Convert to:</label>
-                <select id="formatSelect">
-                    <option value="image/jpeg">JPG</option>
-                    <option value="image/png">PNG</option>
-                    <option value="image/gif">GIF</option>
-                </select>
-            </div>
+<!-- Loading Indicator -->
+<div id="loadingIndicator" hidden>
+    <p>Reducing Your Image...</p>
+</div>
 
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" hidden>
-                <p>Reducing Your Image...</p>
-            </div>
-
-         <!-- Compressed Image Preview -->    <figure id="compressedPreview" class="preview-container" hidden>    <img id="compressedImage" alt="Compressed image preview">    
-    <figcaption id="compressedDetails"></figcaption>    
-    <p id="sizeSaved"></p>    
-    <button id="downloadBtn" disabled>Download Now</button>    
-         </figure>
-
+<!-- Compressed Image Preview (Removed the preview section as per request) -->
+<figure id="compressedPreview" class="preview-container" hidden>
+    <figcaption id="compressedDetails"></figcaption>
+    <p id="sizeSaved"></p>
+    <button id="downloadBtn" disabled>Download Now</button>
+</figure>
+            
         <!-- How-to Section -->
         <section class="how-to" aria-label="How to use the tool">
             <h2>How to Reduce Image Size</h2>
