@@ -86,17 +86,31 @@ document.addEventListener("DOMContentLoaded", function () {
             img.onload = function () {
                 originalDetails.innerHTML = `Dimensions: ${img.width} x ${img.height}<br>Size: ${formatSize(originalFileSize)}`;
                 compressBtn.disabled = false;
+                updateCompressionDetails();
             };
         };
 
         reader.readAsDataURL(file);
     }
 
-    // Update compression percentage value
-    compressRange.addEventListener("input", updateCompressionValue);
+    // Update compression percentage value and show estimated file size
+    compressRange.addEventListener("input", updateCompressionDetails);
 
-    function updateCompressionValue() {
-        compressValue.textContent = `${compressRange.value}%`;
+    function updateCompressionDetails() {
+        const compressPercentage = compressRange.value;
+        compressValue.textContent = `${compressPercentage}%`;
+
+        const compressedSize = (originalFileSize * compressPercentage) / 100;
+        const sizeInKB = compressedSize / 1024;
+        let readableSize = sizeInKB.toFixed(2) + " KB";
+
+        if (sizeInKB > 1024) {
+            const sizeInMB = sizeInKB / 1024;
+            readableSize = sizeInMB.toFixed(2) + " MB";
+        }
+
+        // Update the size display
+        document.getElementById("estimatedSize").textContent = readableSize;
     }
 
     compressBtn.addEventListener("click", function () {
