@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Function to handle hamburger menu
+    // Elements for uploading and compressing images
     function setupHamburgerMenu() {
         const hamburgerMenu = document.querySelector(".hamburger-menu");
         const navLinks = document.querySelector(".nav-links");
@@ -26,11 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    // Call the hamburger menu setup function
-    setupHamburgerMenu();
-
-    // Handle Image Upload
+    // Elements for uploading and compressing images
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -40,17 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const compressValue = document.getElementById("compressValue");
     const compressBtn = document.getElementById("compressBtn");
     const loadingIndicator = document.getElementById("loadingIndicator");
-    const compressedPreview = document.getElementById("compressedPreview");
-    const compressedImage = document.getElementById("compressedImage");
-    const compressedDetails = document.getElementById("compressedDetails");
-    const sizeSaved = document.getElementById("sizeSaved");
-    const downloadBtn = document.getElementById("downloadBtn");
+    const estimatedSize = document.getElementById("estimatedSize");
     const formatSelect = document.getElementById("formatSelect");
-    const estimatedSize = document.getElementById("estimatedSize"); // New element for estimated size display
+    const downloadBtn = document.getElementById("downloadBtn");
 
     let originalFile, originalFileSize, compressedBlob;
 
-    // Handle file upload
+    // Handle file upload (drag and drop or click)
     uploadBox.addEventListener("click", () => imageInput.click());
     imageInput.addEventListener("change", handleFileUpload);
     uploadBox.addEventListener("dragover", (event) => event.preventDefault());
@@ -67,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (file) processImage(file);
     }
 
+    // Process the uploaded image
     function processImage(file) {
         if (!file.type.startsWith("image/")) {
             alert("Please upload a valid image file.");
@@ -87,23 +81,19 @@ document.addEventListener("DOMContentLoaded", function () {
             img.onload = function () {
                 originalDetails.innerHTML = `Dimensions: ${img.width} x ${img.height}<br>Size: ${formatSize(originalFileSize)}`;
                 compressBtn.disabled = false;
-                updateCompressionDetails(); // Update compression details immediately after loading the image
+                updateCompressionDetails(); // Update compression details after loading the image
             };
         };
 
         reader.readAsDataURL(file);
     }
 
-    // Update compression percentage value and show estimated file size
+    // Update compression percentage and display estimated size
     compressRange.addEventListener("input", updateCompressionDetails);
 
     function updateCompressionDetails() {
         const compressPercentage = compressRange.value;
         compressValue.textContent = `${compressPercentage}%`;
-
-        // Display the compression text
-        const compressionText = `Reducing image by ${compressPercentage}%`;
-        document.getElementById("compressionText").textContent = compressionText;
 
         // Estimate new file size based on compression percentage
         const estimatedNewSize = originalFileSize * (compressPercentage / 100);
@@ -113,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         estimatedSize.textContent = `You will get size: ${readableSize}`;
     }
 
+    // Compress the image when the button is clicked
     compressBtn.addEventListener("click", function () {
         if (!originalFile) {
             alert("Please upload an image first.");
@@ -122,10 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
         compressImage(originalFile);
     });
 
+    // Perform image compression
     function compressImage(file) {
         loadingIndicator.hidden = false;
-        compressedPreview.hidden = true;
-
         const reader = new FileReader();
         reader.readAsDataURL(file);
 
@@ -137,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const canvas = document.createElement("canvas");
                 const ctx = canvas.getContext("2d");
 
+                // Compression scale factor based on the selected percentage
                 const scaleFactor = 1 - compressRange.value / 100;
                 const newWidth = Math.max(1, Math.round(img.width * scaleFactor));
                 const newHeight = Math.max(1, Math.round(img.height * scaleFactor));
@@ -152,18 +143,27 @@ document.addEventListener("DOMContentLoaded", function () {
                     compressionQuality = 1;
                 }
 
+                // Create a compressed image blob
                 canvas.toBlob(
                     (blob) => {
                         loadingIndicator.hidden = true;
+                        compressedBlob = blob;
+
+                        // Show compressed image and details
+                        const compressedPreview = document.getElementById("compressedPreview");
                         compressedPreview.hidden = false;
 
-                        compressedBlob = blob;
+                        // Show the new compressed image
+                        const compressedImage = document.createElement("img");
                         compressedImage.src = URL.createObjectURL(blob);
+                        compressedImage.style.width = "50%"; // Set to 50% of original preview size
+                        compressedPreview.appendChild(compressedImage);
 
                         const newSize = blob.size;
                         const savedSize = originalFileSize - newSize;
 
-                        compressedDetails.innerHTML = `
+                        // Show the new image details
+                        document.getElementById("compressedDetails").innerHTML = `
                             Dimensions: ${newWidth} x ${newHeight} <br>
                             Size saved: ${formatSize(savedSize)} <br>
                             <strong>New size: ${formatSize(newSize)}</strong>
@@ -181,12 +181,14 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
+    // Format the size of the file in KB or MB
     function formatSize(size) {
         return size > 1024 * 1024
             ? (size / (1024 * 1024)).toFixed(2) + " MB"
             : (size / 1024).toFixed(2) + " KB";
     }
 
+    // Enable downloading the compressed image
     downloadBtn.addEventListener("click", function () {
         if (!compressedBlob) {
             alert("No compressed image available.");
