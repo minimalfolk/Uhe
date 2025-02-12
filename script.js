@@ -1,24 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load navigation
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.body.insertAdjacentHTML('afterbegin', data);
-            const hamburgerMenu = document.querySelector(".hamburger-menu");
-            const navLinks = document.querySelector(".nav-links");
-
-            hamburgerMenu.addEventListener("click", function () {
-                navLinks.classList.toggle("active");
-            });
-
-            navLinks.addEventListener("click", function (event) {
-                if (event.target.tagName === "A") {
-                    navLinks.classList.remove("active");
-                }
-            });
-        });
-
-    // Existing code...
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -34,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const sizeSaved = document.getElementById("sizeSaved");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const navLinks = document.querySelector(".nav-links");
 
     let originalFile, originalFileSize, compressedBlob;
 
@@ -170,5 +152,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
+    });
+
+    // Hamburger menu functionality (Fix)
+    hamburgerMenu.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+
+    // Close menu when a link is clicked
+    navLinks.addEventListener("click", function (event) {
+        if (event.target.tagName === "A") {
+            navLinks.classList.remove("active");
+        }
     });
 });
