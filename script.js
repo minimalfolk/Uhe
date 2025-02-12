@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Function to handle hamburger menu
+    function setupHamburgerMenu() {
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (!hamburgerMenu || !navLinks) return; // Exit if elements are missing
+
+        // Toggle menu on click
+        hamburgerMenu.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent event bubbling
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                navLinks.classList.remove("active");
+            }
+        });
+
+        // Close menu when clicking a nav link
+        navLinks.addEventListener("click", function (event) {
+            if (event.target.tagName === "A") {
+                navLinks.classList.remove("active");
+            }
+        });
+    }
+
+    // Call the hamburger menu setup function
+    setupHamburgerMenu();
+
+    // Handle Image Upload
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -14,12 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const sizeSaved = document.getElementById("sizeSaved");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links");
 
     let originalFile, originalFileSize, compressedBlob;
 
-    // Handle Image Upload
+    // Handle file upload
     uploadBox.addEventListener("click", () => imageInput.click());
     imageInput.addEventListener("change", handleFileUpload);
     uploadBox.addEventListener("dragover", (event) => event.preventDefault());
@@ -153,27 +183,4 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadLink.click();
         document.body.removeChild(downloadLink);
     });
-
-    // Hamburger menu functionality (FIXED)
-    if (hamburgerMenu && navLinks) {
-        // Toggle menu on click
-        hamburgerMenu.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevent event bubbling
-            navLinks.classList.toggle("active");
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-                navLinks.classList.remove("active");
-            }
-        });
-
-        // Close menu when clicking a nav link
-        navLinks.addEventListener("click", function (event) {
-            if (event.target.tagName === "A") {
-                navLinks.classList.remove("active");
-            }
-        });
-    }
 });
