@@ -9,8 +9,17 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <div id="header-container"></div>
+    <!-- Header (Included in Page) -->
+    <header class="sticky-header">
+        <a href="./" class="logo">ReducePic</a>
+        <div class="hamburger-menu">☰</div>
+        <nav class="nav-links">
+            <a href="./privacy">Privacy</a>
+            <a href="./about" class="active">About</a>
+            <a href="./terms">Terms & Conditions</a>
+            <a href="./contact">Contact</a>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -28,41 +37,36 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <div id="footer-container"></div>
+    <!-- Footer (Included in Page) -->
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy</a>
+            <a href="terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
+    </footer>
 
-    <!-- JavaScript to Load Header and Footer -->
     <script>
+        // Update footer year dynamically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Hamburger menu functionality
         document.addEventListener("DOMContentLoaded", function () {
-            // Load Header
-            fetch("header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const navLinks = document.querySelector(".nav-links");
 
-                    // Add Hamburger Menu Functionality
-                    const hamburgerMenu = document.querySelector(".hamburger-menu");
-                    const navLinks = document.querySelector(".nav-links");
+            hamburgerMenu.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
 
-                    hamburgerMenu.addEventListener("click", function () {
-                        navLinks.classList.toggle("active");
-                    });
-
-                    // Close menu when clicking outside
-                    document.addEventListener("click", function (event) {
-                        if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-                            navLinks.classList.remove("active");
-                        }
-                    });
-                });
-
-            // Load Footer
-            fetch("footer.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("footer-container").innerHTML = data;
-                    document.getElementById("currentYear").textContent = new Date().getFullYear();
-                });
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
         });
     </script>
 
