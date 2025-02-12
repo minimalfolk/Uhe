@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("compressionText").textContent = compressionText;
 
         // Estimate new file size based on compression percentage
-        const compressedSize = (originalFileSize * compressPercentage) / 100;
-        const estimatedSizeValue = originalFileSize - compressedSize;
-        let readableSize = formatSize(estimatedSizeValue);
+        const estimatedNewSize = originalFileSize * (compressPercentage / 100);
+        const estimatedSavedSize = originalFileSize - estimatedNewSize;
+        let readableSize = formatSize(estimatedNewSize);
 
         // Update the size display
         estimatedSize.textContent = `You will get size: ${readableSize}`;
@@ -171,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
                      `;
 
                         downloadBtn.disabled = false;
+
+                        // Ensure estimated size matches the actual size
+                        estimatedSize.textContent = `You will get size: ${formatSize(newSize)}`;
                     },
                     selectedFormat,
                     compressionQuality
