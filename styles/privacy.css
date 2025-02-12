@@ -1,0 +1,70 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Privacy Policy Section */
+.privacy-section {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-section h1 {
+    font-size: 2rem;
+    color: #0288d1;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.privacy-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-section p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .privacy-section {
+        padding: 1.5rem;
+    }
+
+    .privacy-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .privacy-section p {
+        font-size: 0.95rem;
+    }
+}
