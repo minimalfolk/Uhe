@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sizeSaved = document.getElementById("sizeSaved");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
+    const estimatedSize = document.getElementById("estimatedSize"); // New element for estimated size display
 
     let originalFile, originalFileSize, compressedBlob;
 
@@ -100,17 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const compressPercentage = compressRange.value;
         compressValue.textContent = `${compressPercentage}%`;
 
-        const compressedSize = (originalFileSize * compressPercentage) / 100;
-        const sizeInKB = compressedSize / 1024;
-        let readableSize = sizeInKB.toFixed(2) + " KB";
+        // Display the compression text
+        const compressionText = `Reducing image by ${compressPercentage}%`;
+        document.getElementById("compressionText").textContent = compressionText;
 
-        if (sizeInKB > 1024) {
-            const sizeInMB = sizeInKB / 1024;
-            readableSize = sizeInMB.toFixed(2) + " MB";
-        }
+        // Estimate new file size based on compression percentage
+        const compressedSize = (originalFileSize * compressPercentage) / 100;
+        const estimatedSizeValue = originalFileSize - compressedSize;
+        let readableSize = formatSize(estimatedSizeValue);
 
         // Update the size display
-        document.getElementById("estimatedSize").textContent = readableSize;
+        estimatedSize.textContent = `You will get size: ${readableSize}`;
     }
 
     compressBtn.addEventListener("click", function () {
