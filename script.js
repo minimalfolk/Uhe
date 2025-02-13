@@ -1,22 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Hamburger Menu Functionality
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links");
+    // Function to handle hamburger menu toggle
+    function setupHamburgerMenu() {
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
 
-    if (hamburgerMenu && navLinks) {
-        hamburgerMenu.addEventListener("click", function () {
+        if (!hamburgerMenu || !navLinks) return; // Exit if the elements are missing
+
+        // Toggle the "active" class to show/hide menu
+        hamburgerMenu.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent event bubbling
             navLinks.classList.toggle("active");
         });
 
-        // Close the menu if clicking outside
+        // Close menu when clicking outside the navigation links or hamburger menu
         document.addEventListener("click", function (event) {
             if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
                 navLinks.classList.remove("active");
             }
         });
+
+        // Close menu when clicking a link inside the nav
+        navLinks.addEventListener("click", function (event) {
+            if (event.target.tagName === "A") {
+                navLinks.classList.remove("active");
+            }
+        });
     }
 
-    // Image Compression Logic
+    // Call this function to initialize the hamburger menu
+    setupHamburgerMenu();
+
+    // Image Upload and Compression Section
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -168,7 +182,4 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadLink.click();
         document.body.removeChild(downloadLink);
     });
-
-    // Dynamically update the copyright year
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
 });
