@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Hamburger Menu Functionality
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+
+    // Close Hamburger Menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Image Compression Logic
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -14,9 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const estimatedSize = document.getElementById("estimatedSize");
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
+    const errorMessage = document.getElementById("errorMessage");
 
     let originalFile, originalFileSize, compressedBlob;
 
+    // Drag and Drop Functionality
     uploadBox.addEventListener("click", () => imageInput.click());
     imageInput.addEventListener("change", handleFileUpload);
     uploadBox.addEventListener("dragover", (event) => event.preventDefault());
@@ -35,10 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processImage(file) {
         if (!file.type.startsWith("image/")) {
-            alert("Please upload a valid image file.");
+            errorMessage.textContent = "Please upload a valid image file.";
+            errorMessage.hidden = false;
             return;
         }
 
+        errorMessage.hidden = true;
         originalFile = file;
         originalFileSize = file.size;
         const reader = new FileReader();
@@ -61,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsDataURL(file);
     }
 
+    // Update Compression Percentage
     compressRange.addEventListener("input", updateCompressionDetails);
 
     function updateCompressionDetails() {
@@ -72,9 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
         estimatedSize.textContent = `You will get size: ${formatSize(estimatedNewSize)}`;
     }
 
+    // Compress Image
     compressBtn.addEventListener("click", function () {
         if (!originalFile) {
-            alert("Please upload an image first.");
+            errorMessage.textContent = "Please upload an image first.";
+            errorMessage.hidden = false;
             return;
         }
         compressImage(originalFile);
@@ -142,15 +165,18 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
+    // Format Size Helper Function
     function formatSize(size) {
         return size > 1024 * 1024
             ? (size / (1024 * 1024)).toFixed(2) + " MB"
             : (size / 1024).toFixed(2) + " KB";
     }
 
+    // Download Compressed Image
     downloadBtn.addEventListener("click", function () {
         if (!compressedBlob) {
-            alert("No compressed image available.");
+            errorMessage.textContent = "No compressed image available.";
+            errorMessage.hidden = false;
             return;
         }
 
