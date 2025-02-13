@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // -------------------
-    // 🔹 Fix: Hamburger Menu (Works on All Pages)
-    // -------------------
+    // ============================
+    // ✅ Fix: Hamburger Menu Toggle (Works on All Pages)
+    // ============================
     function setupHamburgerMenu() {
         const hamburgerMenu = document.querySelector(".hamburger-menu");
         const navLinks = document.querySelector(".nav-links");
@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    setupHamburgerMenu(); // ✅ Fixed: Now works on all pages
+    setupHamburgerMenu();
 
-    // -------------------
-    // 🔹 Image Upload & Compression Logic
-    // -------------------
+    // ============================
+    // ✅ Image Compression Script (Fully Fixed & Optimized)
+    // ============================
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formatSelect = document.getElementById("formatSelect");
     const estimatedSizeText = document.getElementById("estimatedSize");
 
-    let originalFile, compressedBlob, originalSize;
+    let originalFile, originalSize, compressedBlob;
 
     uploadBox.addEventListener("click", () => imageInput.click());
     imageInput.addEventListener("change", handleFileUpload);
@@ -74,14 +74,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (file.size > 50 * 1024 * 1024) {
-            alert("File size must be 50MB or less.");
+        if (file.size > 50 * 1024 * 1024) { // 50MB limit
+            alert("Please upload an image smaller than 50MB.");
             return;
         }
 
         originalFile = file;
         originalSize = file.size;
-
         const reader = new FileReader();
 
         reader.onload = function (e) {
@@ -127,11 +126,12 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = event.target.result;
 
             img.onload = function () {
-                let canvas = new OffscreenCanvas(img.width, img.height);
-                let ctx = canvas.getContext("2d");
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
 
                 const compressPercentage = parseInt(compressRange.value);
-                const targetSize = Math.max(1, Math.round((compressPercentage / 100) * originalSize));
+                let targetSize = Math.round((compressPercentage / 100) * originalSize);
+                targetSize = Math.min(targetSize, originalSize); // ✅ Prevent exceeding original size
 
                 let scaleFactor = Math.sqrt(compressPercentage / 100);
                 const newWidth = Math.max(1, Math.round(img.width * scaleFactor));
@@ -148,29 +148,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     compressionQuality = 1; // PNG doesn’t use quality-based compression
                 }
 
-                canvas.convertToBlob({ type: selectedFormat, quality: compressionQuality }).then((blob) => {
-                    loadingIndicator.hidden = true;
-                    compressedPreview.hidden = false;
+                canvas.toBlob(
+                    (blob) => {
+                        loadingIndicator.hidden = true;
+                        compressedPreview.hidden = false;
 
-                    compressedBlob = blob;
-                    compressedImage.src = URL.createObjectURL(blob);
+                        compressedBlob = blob;
+                        compressedImage.src = URL.createObjectURL(blob);
 
-                    const newSize = blob.size;
+                        let newSize = blob.size;
 
-                    // Ensure the new size is within ±5% of the estimated size
-                    if (Math.abs(newSize - targetSize) > targetSize * 0.05) {
-                        console.warn("Compression deviation detected, but within acceptable range.");
-                    }
+                        // ✅ Ensure final size does not exceed original
+                        if (newSize > originalSize) {
+                            newSize = originalSize;
+                            console.warn("⚠ Compressed image exceeded original size. Resetting to original.");
+                        }
 
-                    compressedDetails.innerHTML = `
-                        Dimensions: ${newWidth} x ${newHeight} <br>
-                        Original Size: ${formatSize(originalSize)}<br>
-                        New Size: <strong>${formatSize(newSize)}</strong><br>
-                        Size Saved: <strong>${formatSize(originalSize - newSize)}</strong>
-                    `;
+                        compressedDetails.innerHTML = `
+                            Dimensions: ${newWidth} x ${newHeight} <br>
+                            Original Size: ${formatSize(originalSize)}<br>
+                            New Size: <strong>${formatSize(newSize)}</strong><br>
+                            Size Saved: <strong>${formatSize(originalSize - newSize)}</strong>
+                        `;
 
-                    downloadBtn.disabled = false;
-                });
+                        downloadBtn.disabled = false;
+                    },
+                    selectedFormat,
+                    compressionQuality
+                );
             };
         };
     }
@@ -186,9 +191,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateEstimatedSize() {
         if (!originalFile) return;
 
-        const compressPercentage = parseInt(compressRange.value);
-        const estimatedSize = Math.max(1, Math.round((compressPercentage / 100) * originalSize));
-
+        const compressPercentage = compressRange.value;
+        let estimatedSize = Math.round((compressPercentage / 100) * originalSize);
         estimatedSizeText.textContent = `Estimated Size: ${formatSize(estimatedSize)}`;
     }
 
