@@ -163,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             Size Saved: <strong>${formatSize(savedSize)}</strong>
                         `;
 
+                        // Show the download button only after compression
                         downloadBtn.disabled = false;
                     },
                     selectedFormat,
