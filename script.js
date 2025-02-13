@@ -164,9 +164,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function formatSize(size) {
-        return size > 1024 * 1024
-            ? (size / (1024 * 1024)).toFixed(2) + " MB"
-            : (size / 1024).toFixed(2) + " KB";
+        if (size >= 1024 * 1024) {
+            return (size / (1024 * 1024)).toFixed(2) + " MB"; // Convert to MB
+        } else {
+            return (size / 1024).toFixed(2) + " KB"; // Convert to KB
+        }
     }
 
     function updateEstimatedSize() {
@@ -176,17 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let estimatedSize;
 
         // Adjust estimation logic based on compression percentage
-        if (compressPercentage <= 20) {
-            estimatedSize = originalFile.size * 0.9;  // 10% loss at 20% compression
-        } else if (compressPercentage <= 50) {
-            estimatedSize = originalFile.size * 0.7;  // 30% loss at 50% compression
-        } else if (compressPercentage <= 80) {
-            estimatedSize = originalFile.size * 0.5;  // 50% loss at 80% compression
-        } else {
-            estimatedSize = originalFile.size * 0.3;  // 70% loss at 100% compression
-        }
+        // If compress percentage is 10%, show an estimate for 10% of the original size
+        // If compress percentage is 80%, show an estimate for 80% of the original size
+        estimatedSize = originalFile.size * (compressPercentage / 100);
 
-        estimatedSizeText.textContent = `You will get size: ${formatSize(estimatedSize)}`;
+        estimatedSizeText.textContent = `Estimated Size: ${formatSize(estimatedSize)}`;
     }
 
     downloadBtn.addEventListener("click", function () {
