@@ -173,8 +173,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!originalFile) return;
 
         const compressPercentage = compressRange.value;
-        const estimatedSize = (originalFile.size * (compressPercentage / 100));
-        estimatedSizeText.textContent = `You will get size: ${(estimatedSize / 1024).toFixed(2)} KB`;
+        let estimatedSize;
+
+        // Adjust estimation logic based on compression percentage
+        if (compressPercentage <= 20) {
+            estimatedSize = originalFile.size * 0.9;  // 10% loss at 20% compression
+        } else if (compressPercentage <= 50) {
+            estimatedSize = originalFile.size * 0.7;  // 30% loss at 50% compression
+        } else if (compressPercentage <= 80) {
+            estimatedSize = originalFile.size * 0.5;  // 50% loss at 80% compression
+        } else {
+            estimatedSize = originalFile.size * 0.3;  // 70% loss at 100% compression
+        }
+
+        estimatedSizeText.textContent = `You will get size: ${formatSize(estimatedSize)}`;
     }
 
     downloadBtn.addEventListener("click", function () {
