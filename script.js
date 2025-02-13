@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadBtn = document.getElementById("downloadBtn");
     const formatSelect = document.getElementById("formatSelect");
     const estimatedSizeText = document.getElementById("estimatedSize");
+    const newSizeText = document.getElementById("newSize");
 
     let originalFile, compressedBlob;
 
@@ -158,6 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             `;
 
                             downloadBtn.disabled = false;
+                            // Update new size after compression
+                            newSizeText.textContent = `New Size: ${formatSize(newSize)}`;
                         },
                         selectedFormat,
                         compressionQuality
@@ -181,17 +184,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const compressPercentage = compressRange.value;
         let estimatedSize;
 
-        // Adjust the logic to estimate based on compression percentage
-        // If compress percentage is 10%, show an estimate for 10% of the original size
-        // If compress percentage is 90%, show an estimate for 90% of the original size
+        const originalSize = originalFile.size;
+
         if (compressPercentage < 100) {
             // Lower compress percentage (10% - 90%) will reduce the image size proportionally
-            estimatedSize = originalFile.size * (compressPercentage / 100);
+            estimatedSize = originalSize * (compressPercentage / 100);
+
+            // Adjust estimation for format (lossy vs lossless)
+            if (formatSelect.value === "image/png") {
+                estimatedSize *= 0.8; // PNG usually compresses a bit less
+            }
         } else {
             // For 100% compression (no change), the estimated size is the original size
-            estimatedSize = originalFile.size;
+            estimatedSize = originalSize;
         }
 
+        // Show estimated size
         estimatedSizeText.textContent = `Estimated Size: ${formatSize(estimatedSize)}`;
     }
 
