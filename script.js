@@ -1,6 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
     // -------------------
-    // Image Upload & Compression Logic
+    // 🔹 Fix: Hamburger Menu (Works on All Pages)
+    // -------------------
+    function setupHamburgerMenu() {
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (!hamburgerMenu || !navLinks) return;
+
+        hamburgerMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+            navLinks.classList.toggle("active");
+            hamburgerMenu.classList.toggle("open");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                navLinks.classList.remove("active");
+                hamburgerMenu.classList.remove("open");
+            }
+        });
+
+        navLinks.addEventListener("click", function (event) {
+            if (event.target.tagName === "A") {
+                navLinks.classList.remove("active");
+                hamburgerMenu.classList.remove("open");
+            }
+        });
+    }
+
+    setupHamburgerMenu(); // ✅ Fixed: Now works on all pages
+
+    // -------------------
+    // 🔹 Image Upload & Compression Logic
     // -------------------
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
@@ -96,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const compressPercentage = parseInt(compressRange.value);
                 const targetSize = Math.max(1, Math.round((compressPercentage / 100) * originalSize));
 
-                // Adjust scale factor to get close to the target size
                 let scaleFactor = Math.sqrt(compressPercentage / 100);
                 const newWidth = Math.max(1, Math.round(img.width * scaleFactor));
                 const newHeight = Math.max(1, Math.round(img.height * scaleFactor));
@@ -121,6 +152,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         compressedImage.src = URL.createObjectURL(blob);
 
                         const newSize = blob.size;
+
+                        // Ensure the new size is within ±2KB of estimated size
+                        if (Math.abs(newSize - targetSize) > 2048) {
+                            alert("The compression was slightly off. Retrying...");
+                            compressImage(file); // Retry compression
+                            return;
+                        }
 
                         compressedDetails.innerHTML = `
                             Dimensions: ${newWidth} x ${newHeight} <br>
