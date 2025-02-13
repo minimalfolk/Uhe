@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.onload = function (e) {  
             originalPreview.hidden = false;  
             originalImage.src = e.target.result;  
-            compressedPreview.hidden = true; // Fix: Hide compressed image on new upload  
+            compressedPreview.hidden = true;  
 
             const img = new Image();  
             img.src = e.target.result;  
@@ -87,11 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
     compressRange.addEventListener("input", updateCompressionDetails);  
 
     function updateCompressionDetails() {  
+        if (!originalFileSize) return;  
         const compressPercentage = compressRange.value;  
         compressValue.textContent = `${compressPercentage}%`;  
         document.getElementById("compressionText").textContent = `Reducing image by ${compressPercentage}%`;  
 
-        const estimatedNewSize = Math.max(100, originalFileSize * (compressPercentage / 100));  
+        const estimatedNewSize = Math.max(50 * 1024, originalFileSize * (compressPercentage / 100));  
         estimatedSize.textContent = `You will get size: ${formatSize(estimatedNewSize)}`;  
     }  
 
@@ -141,10 +142,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         compressedBlob = blob;  
                         compressedImage.src = URL.createObjectURL(blob);  
 
-                        const newSize = Math.max(100, blob.size); // Ensure min size 100KB  
+                        const newSize = Math.max(50 * 1024, blob.size);  
                         const savedSize = originalFileSize - newSize;  
 
                         compressedDetails.innerHTML = `  
+                            <strong>Compressed Image Details:</strong><br>  
                             Dimensions: ${newWidth} x ${newHeight} <br>  
                             Size saved: ${formatSize(savedSize)} <br>  
                             <strong>New size: ${formatSize(newSize)}</strong>  
