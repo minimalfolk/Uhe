@@ -127,38 +127,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 canvas.width = newWidth;
                 canvas.height = newHeight;
-                ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-                const selectedFormat = formatSelect.value;
-                let compressionQuality = 1 - compressRange.value / 100;
+                // Optimized drawing using requestAnimationFrame for smoother UI interaction
+                requestAnimationFrame(() => {
+                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-                if (selectedFormat === "image/png") {
-                    compressionQuality = 1; // PNG doesn’t use quality-based compression
-                }
+                    const selectedFormat = formatSelect.value;
+                    let compressionQuality = 1 - compressRange.value / 100;
 
-                canvas.toBlob(
-                    (blob) => {
-                        loadingIndicator.hidden = true;
-                        compressedPreview.hidden = false;
+                    if (selectedFormat === "image/png") {
+                        compressionQuality = 1; // PNG doesn’t use quality-based compression
+                    }
 
-                        compressedBlob = blob;
-                        compressedImage.src = URL.createObjectURL(blob);
+                    canvas.toBlob(
+                        (blob) => {
+                            loadingIndicator.hidden = true;
+                            compressedPreview.hidden = false;
 
-                        const newSize = blob.size;
-                        const savedSize = originalFile.size - newSize;
+                            compressedBlob = blob;
+                            compressedImage.src = URL.createObjectURL(blob);
 
-                        compressedDetails.innerHTML = `
-                            Dimensions: ${newWidth} x ${newHeight} <br>
-                            Original Size: ${formatSize(originalFile.size)}<br>
-                            New Size: <strong>${formatSize(newSize)}</strong><br>
-                            Size Saved: <strong>${formatSize(savedSize)}</strong>
-                        `;
+                            const newSize = blob.size;
+                            const savedSize = originalFile.size - newSize;
 
-                        downloadBtn.disabled = false;
-                    },
-                    selectedFormat,
-                    compressionQuality
-                );
+                            compressedDetails.innerHTML = `
+                                Dimensions: ${newWidth} x ${newHeight} <br>
+                                Original Size: ${formatSize(originalFile.size)}<br>
+                                New Size: <strong>${formatSize(newSize)}</strong><br>
+                                Size Saved: <strong>${formatSize(savedSize)}</strong>
+                            `;
+
+                            downloadBtn.disabled = false;
+                        },
+                        selectedFormat,
+                        compressionQuality
+                    );
+                });
             };
         };
     }
@@ -177,10 +181,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const compressPercentage = compressRange.value;
         let estimatedSize;
 
-        // Adjust estimation logic based on compression percentage
+        // Adjust the logic to estimate based on compression percentage
         // If compress percentage is 10%, show an estimate for 10% of the original size
-        // If compress percentage is 80%, show an estimate for 80% of the original size
-        estimatedSize = originalFile.size * (compressPercentage / 100);
+        // If compress percentage is 90%, show an estimate for 90% of the original size
+        if (compressPercentage < 100) {
+            // Lower compress percentage (10% - 90%) will reduce the image size proportionally
+            estimatedSize = originalFile.size * (compressPercentage / 100);
+        } else {
+            // For 100% compression (no change), the estimated size is the original size
+            estimatedSize = originalFile.size;
+        }
 
         estimatedSizeText.textContent = `Estimated Size: ${formatSize(estimatedSize)}`;
     }
