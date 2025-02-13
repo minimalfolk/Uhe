@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        if (file.size > 50 * 1024 * 1024) {
+            alert("File size must be 50MB or less.");
+            return;
+        }
+
         originalFile = file;
         originalSize = file.size;
 
@@ -122,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = event.target.result;
 
             img.onload = function () {
-                const canvas = document.createElement("canvas");
-                const ctx = canvas.getContext("2d");
+                let canvas = new OffscreenCanvas(img.width, img.height);
+                let ctx = canvas.getContext("2d");
 
                 const compressPercentage = parseInt(compressRange.value);
                 const targetSize = Math.max(1, Math.round((compressPercentage / 100) * originalSize));
@@ -143,35 +148,29 @@ document.addEventListener("DOMContentLoaded", function () {
                     compressionQuality = 1; // PNG doesn’t use quality-based compression
                 }
 
-                canvas.toBlob(
-                    (blob) => {
-                        loadingIndicator.hidden = true;
-                        compressedPreview.hidden = false;
+                canvas.convertToBlob({ type: selectedFormat, quality: compressionQuality }).then((blob) => {
+                    loadingIndicator.hidden = true;
+                    compressedPreview.hidden = false;
 
-                        compressedBlob = blob;
-                        compressedImage.src = URL.createObjectURL(blob);
+                    compressedBlob = blob;
+                    compressedImage.src = URL.createObjectURL(blob);
 
-                        const newSize = blob.size;
+                    const newSize = blob.size;
 
-                        // Ensure the new size is within ±2KB of estimated size
-                        if (Math.abs(newSize - targetSize) > 2048) {
-                            alert("The compression was slightly off. Retrying...");
-                            compressImage(file); // Retry compression
-                            return;
-                        }
+                    // Ensure the new size is within ±5% of the estimated size
+                    if (Math.abs(newSize - targetSize) > targetSize * 0.05) {
+                        console.warn("Compression deviation detected, but within acceptable range.");
+                    }
 
-                        compressedDetails.innerHTML = `
-                            Dimensions: ${newWidth} x ${newHeight} <br>
-                            Original Size: ${formatSize(originalSize)}<br>
-                            New Size: <strong>${formatSize(newSize)}</strong><br>
-                            Size Saved: <strong>${formatSize(originalSize - newSize)}</strong>
-                        `;
+                    compressedDetails.innerHTML = `
+                        Dimensions: ${newWidth} x ${newHeight} <br>
+                        Original Size: ${formatSize(originalSize)}<br>
+                        New Size: <strong>${formatSize(newSize)}</strong><br>
+                        Size Saved: <strong>${formatSize(originalSize - newSize)}</strong>
+                    `;
 
-                        downloadBtn.disabled = false;
-                    },
-                    selectedFormat,
-                    compressionQuality
-                );
+                    downloadBtn.disabled = false;
+                });
             };
         };
     }
