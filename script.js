@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ============================
-    // ✅ Fix: Hamburger Menu Toggle (Works on All Pages)
-    // ============================
+    // ✅ Fix: Hamburger Menu (Works on All Pages)
     function setupHamburgerMenu() {
         const hamburgerMenu = document.querySelector(".hamburger-menu");
         const navLinks = document.querySelector(".nav-links");
@@ -31,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setupHamburgerMenu();
 
-    // ============================
-    // ✅ Image Compression Script (Fully Fixed & Optimized)
-    // ============================
+    // ✅ Image Compression Script (Optimized)
     const imageInput = document.getElementById("imageInput");
     const uploadBox = document.getElementById("uploadBox");
     const originalPreview = document.getElementById("originalPreview");
@@ -164,11 +160,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             console.warn("⚠ Compressed image exceeded original size. Resetting to original.");
                         }
 
+                        let savedSize = originalSize - newSize;
+
+                        // ✅ Display Details in Requested Format
                         compressedDetails.innerHTML = `
-                            Dimensions: ${newWidth} x ${newHeight} <br>
-                            Original Size: ${formatSize(originalSize)}<br>
-                            New Size: <strong>${formatSize(newSize)}</strong><br>
-                            Size Saved: <strong>${formatSize(originalSize - newSize)}</strong>
+                            <strong>New Size:</strong> <strong>${formatSize(newSize)}</strong><br>
+                            <strong>Saved Size:</strong> ${formatSize(savedSize)}<br>
+                            <strong>New Dimensions:</strong> ${newWidth} x ${newHeight}
                         `;
 
                         downloadBtn.disabled = false;
