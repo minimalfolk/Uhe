@@ -14,9 +14,14 @@
     <meta name="twitter:description" content="Reduce image size online with ease. Compress images without losing quality using our free tool.">
     <meta name="twitter:image" content="https://reducepic.in/image-compression-tool-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="author" content="ReducePic">
+    <meta name="robots" content="index, follow">
     <title>Reduce Image Size | Free Image Compression Tool | ReducePic.in</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" href="favicon.ico">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Structured Data for SEO (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -25,9 +30,27 @@
       "description": "Compress images easily and reduce size without losing quality.",
       "applicationCategory": "Utility",
       "operatingSystem": "Web",
-      "url": "https://reducepic.in"
+      "url": "https://reducepic.in",
+      "potentialAction": {
+        "@type": "Action",
+        "target": "https://reducepic.in",
+        "name": "Reduce Image"
+      }
     }
     </script>
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:image" content="https://reducepic.in/image-compression-tool-image.jpg">
+    <meta property="og:title" content="Reduce Image Size | Free Image Compression Tool">
+    <meta property="og:description" content="Compress your images easily without losing quality. Use our free and fast online image compression tool to reduce image size by percentage or file size.">
+
+    <!-- Twitter Card for Social Media -->
+    <meta name="twitter:title" content="Reduce Image Size | Free Image Compression Tool">
+    <meta name="twitter:description" content="Reduce image size online with ease. Compress images without losing quality using our free tool.">
+    <meta name="twitter:image" content="https://reducepic.in/image-compression-tool-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header class="sticky-header">
@@ -45,7 +68,7 @@
         <section class="compress-image">
             <h1>Reduce Image Size</h1>
             <p>Upload an image and reduce its size by percentage.</p>
-            
+
             <!-- Drag and Drop Area -->
             <div class="upload-box" id="uploadBox">
                 <p>Drag and drop or click here to upload Image.</p>
@@ -91,7 +114,6 @@
                 <p id="sizeSaved"></p>
                 <button id="downloadBtn" disabled>Download Now</button>
             </figure>
-            
         </section>
 
         <!-- How-to Section -->
@@ -99,7 +121,7 @@
             <h2>How to Reduce Image Size</h2>
             <ol>
                 <li>Upload your image by clicking or dragging it to the upload box.</li>
-                <li>Slide percentage point to reduce by percentage.</li>
+                <li>Slide the percentage to reduce by percentage.</li>
                 <li>Click "Reduce Now" to start the compression process.</li>
                 <li>Once compressed, you can download or share the image.</li>
             </ol>
