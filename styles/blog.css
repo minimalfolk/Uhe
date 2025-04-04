@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-header, .sticky-footer {
+  background: #1e1e1e;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+.blog-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.blog-card {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.blog-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.blog-card a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.blog-card .blog-date {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
