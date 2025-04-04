@@ -2,6 +2,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: #f4f4f4;
+  color: #222;
 }
 
 .sticky-header, .sticky-footer {
@@ -27,6 +29,7 @@ body {
   margin: auto;
 }
 
+/* Blog list cards */
 .blog-card {
   border-bottom: 1px solid #ddd;
   padding: 1rem 0;
@@ -46,8 +49,60 @@ body {
   color: #555;
 }
 
+/* Footer */
 .footer-links a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
+}
+
+/* Post Page Styling */
+.post-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-page h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-page p {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.post-page img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.post-page ul, .post-page ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.post-page li {
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .blog-container {
+    padding: 1rem;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
 }
