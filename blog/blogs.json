@@ -1,7 +1,14 @@
 [
   {
-    "title": "How to Compress Images Without Losing Quality",
-    "date": "2025-04-04",
-    "file": "../blog/how-to-compress.html"
+    "title": "How to Reduce Image Size Without Losing Quality",
+    "slug": "reduce-image-size",
+    "description": "Learn the best ways to compress images online without compromising quality using ReducePic.",
+    "date": "2025-04-01"
+  },
+  {
+    "title": "Top 5 Free Tools to Shrink Image Size",
+    "slug": "top-free-image-tools",
+    "description": "Discover the best free image compression tools available in 2025.",
+    "date": "2025-03-27"
   }
 ]
