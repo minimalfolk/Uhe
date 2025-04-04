@@ -6,13 +6,6 @@ body {
   color: #222;
 }
 
-.sticky-header, .sticky-footer {
-  background: #1e1e1e;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
 .nav-links a {
   color: white;
   margin: 0 10px;
@@ -47,13 +40,6 @@ body {
 .blog-card .blog-date {
   font-size: 0.9rem;
   color: #555;
-}
-
-/* Footer */
-.footer-links a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
 }
 
 /* Post Page Styling */
