@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | ReducePic.in</title>
   <meta name="description" content="Read helpful guides and tips on how to reduce image size without compromising quality using ReducePic.">
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/blog.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/blog.css" />
+  <script src="/script.js" defer></script>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 
   <!-- Header -->
   <header class="sticky-header">
-    <a href="./" class="logo">ReducePic</a>
+    <a href="/" class="logo">ReducePic</a>
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
     <nav class="nav-links">
-      <a href="./blog" class="active">Blog</a>
-      <a href="./about">About</a>
-      <a href="./terms">Terms & Conditions</a>
-      <a href="./contact">Contact</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/terms">Terms & Conditions</a>
+      <a href="/contact">Contact</a>
     </nav>
   </header>
 
@@ -33,10 +33,10 @@
 
   <footer class="sticky-footer">
     <div class="footer-links">
-      <a href="./about">About</a>
-      <a href="./contact">Contact</a>
-      <a href="./privacy">Privacy</a>
-      <a href="./terms">Terms & Conditions</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms & Conditions</a>
     </div>
     <p>©<span id="currentYear"></span> Reduce Pic</p>
   </footer>
@@ -45,7 +45,7 @@
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
     document.addEventListener("DOMContentLoaded", () => {
-      fetch("blog/post.json")
+      fetch("/blog/post.json")
         .then(response => response.json())
         .then(blogs => {
           const blogList = document.getElementById("blogList");
@@ -55,7 +55,7 @@
             blogCard.className = "blog-card";
 
             blogCard.innerHTML = `
-              <h2><a href="blog/${blog.slug}.html">${blog.title}</a></h2>
+              <h2><a href="/blog/${blog.slug}.html">${blog.title}</a></h2>
               <p class="blog-date">${new Date(blog.date).toLocaleDateString()}</p>
               <p>${blog.description}</p>
             `;
@@ -65,6 +65,7 @@
         })
         .catch(error => {
           console.error("Error loading blogs:", error);
+          document.getElementById("blogList").innerHTML += "<p>Failed to load blog posts.</p>";
         });
     });
   </script>
