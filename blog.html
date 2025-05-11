@@ -2,25 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog - ReducePic India</title>
-  <link rel="stylesheet" href="css/blog.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | ReducePic</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/blog.css" />
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <header class="blog-header">
-    <h1>ReducePic Blog</h1>
-    <p>Tips, tricks, and updates from the world of image compression.</p>
+  <!-- Header -->
+  <header class="sticky-header">
+    <a href="./" class="logo">ReducePic</a>
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links">
+      <a href="./blog" class="active">Blog</a>
+      <a href="./privacy">Privacy</a>
+      <a href="./about">About</a>
+      <a href="./terms">Terms & Conditions</a>
+      <a href="./contact">Contact</a>
+    </nav>
   </header>
 
+  <!-- Blog Header -->
+  <section class="blog-header">
+    <h1>ReducePic Blog</h1>
+    <p>Tips, tricks, and updates from the world of image compression.</p>
+  </section>
+
+  <!-- Blog Posts -->
   <main class="blog-list" id="blogList">
-    <!-- Blog posts will load here from blog/blogs.json -->
+    <!-- Blog posts will be dynamically inserted here -->
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 ReducePic India. All rights reserved.</p>
   </footer>
 
+  <!-- Blog Script -->
   <script src="js/blog.js"></script>
 </body>
 </html>
