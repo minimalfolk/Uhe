@@ -1,9 +1,7 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" }
-  ],
   "routes": [
+    { "src": "/", "dest": "/index.html" },
     { "src": "/blog", "dest": "/blog.html" },
     { "src": "/about", "dest": "/about.html" },
     { "src": "/privacy", "dest": "/privacy.html" },
