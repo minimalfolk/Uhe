@@ -1,9 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" }
-  ]
-}
