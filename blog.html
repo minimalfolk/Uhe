@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/blog.css" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
   <script src="script.js" defer></script>
+  <script src="js/blog.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -35,11 +36,18 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 ReducePic</p>
-  </footer>
+  <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+            <a href="./privacy">Privacy</a>
+            <a href="./terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> Reduce Pic</p>
+    </footer>
 
-  <!-- Blog Script -->
-  <script src="js/blog.js"></script>
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
