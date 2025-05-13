@@ -172,25 +172,6 @@ main {
     background-color: #0277bd;
 }
 
-/* Sticky Footer */
-.sticky-footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    background-color: #fff;
-    border-top: 1px solid #e0e0e0;
-    margin-top: 3rem;
-}
-
-.footer-links {
-    margin-bottom: 1rem;
-}
-
-.footer-links a {
-    margin: 0 0.5rem;
-    font-size: 0.95rem;
-    color: #0288d1;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .post-title {
