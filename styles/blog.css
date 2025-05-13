@@ -1,138 +1,279 @@
-/* General Reset */
+/* General Reset with Smooth Scrolling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Remove Underlines */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove Underlines with Transition */
 a, a:visited, a:hover, a:active {
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s ease;
 }
 
-/* Body Styling */
+/* Body Styling with Gradient Background */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   color: #333;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Blog Header */
+/* Animated Blog Header */
 .blog-header {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 4rem 1rem 3rem;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0288d1, #03a9f4, #0288d1);
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .blog-header h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #0288d1;
   margin-bottom: 0.5rem;
+  animation: fadeInDown 1s ease both;
 }
 
 .blog-header p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
+  animation: fadeInUp 1s ease 0.2s both;
 }
 
-/* Blog List Container */
+/* Blog List Container with Staggered Animation */
 .blog-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
-/* Blog Post Card */
+/* Enhanced Blog Post Card with Scaling */
 .blog-post {
   width: 100%;
-  max-width: 700px;
+  max-width: 750px;
   background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: translateY(30px);
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: translateY(30px) scale(0.98);
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-post::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0288d1, #03a9f4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 /* Animation Triggered */
 .blog-post.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .blog-post:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Blog Image */
+.blog-post:hover::after {
+  transform: scaleX(1);
+}
+
+/* Blog Image with Zoom Effect */
 .blog-post img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   object-fit: cover;
-  max-height: 300px;
+  max-height: 350px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Blog Content */
+.blog-post:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Blog Content with Text Animation */
 .blog-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: #0277bd;
-  margin-bottom: 0.5rem;
+  margin: 1.5rem 0 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.blog-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #03a9f4;
+  transition: width 0.4s ease;
+}
+
+.blog-post:hover .blog-content h2::after {
+  width: 100px;
 }
 
 .blog-content p {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #444;
   text-align: justify;
+  margin: 1rem 0;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
 
-/* Blog Meta Info */
+.blog-post:hover .blog-content p {
+  opacity: 1;
+}
+
+/* Animated Blog Meta Info */
 .blog-meta {
   font-size: 0.9rem;
   color: #999;
   text-align: right;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-/* NoScript Warning */
+.blog-post:hover .blog-meta {
+  color: #666;
+}
+
+/* Loading Animation for Images */
+.blog-post img {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* NoScript Warning with Animation */
 .noscript-warning {
   text-align: center;
   color: #d32f2f;
   background: #fff3f3;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 2rem auto;
   border-radius: 8px;
   max-width: 700px;
+  animation: pulse 2s infinite;
+  border-left: 4px solid #d32f2f;
 }
 
-/* Responsive Design */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design with Transition */
 @media (max-width: 768px) {
+  .blog-header {
+    padding: 3rem 1rem 2rem;
+  }
+  
   .blog-header h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    transition: font-size 0.3s ease;
   }
 
   .blog-header p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: font-size 0.3s ease;
   }
 
   .blog-content h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    transition: font-size 0.3s ease;
   }
 
   .blog-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: font-size 0.3s ease;
   }
 
-  .blog-meta {
-    text-align: left;
+  .blog-post {
+    padding: 1.5rem;
+    transition: padding 0.3s ease;
   }
+}
+
+/* Hover Effects for Links */
+a:hover {
+  color: #0288d1;
+  text-shadow: 0 0 5px rgba(2, 136, 209, 0.2);
 }
