@@ -4,18 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | ReducePic</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ReducePic Blog: Explore expert tips, tools, and updates on image compression and optimization." />
+  <meta name="keywords" content="image compression blog, ReducePic tips, photo resizing, web optimization" />
+  <meta name="author" content="ReducePic Team" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/blog.css" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Scripts -->
   <script src="script.js" defer></script>
   <script src="js/blog.js" defer></script>
 </head>
 <body>
   <!-- Header -->
   <header class="sticky-header">
-    <a href="./" class="logo">ReducePic</a>
-    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links">
+    <a href="./" class="logo" aria-label="ReducePic Home">ReducePic</a>
+    <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Toggle menu">☰</div>
+    <nav class="nav-links" role="navigation" aria-label="Main">
       <a href="./blog" class="active">Blog</a>
       <a href="./privacy">Privacy</a>
       <a href="./about">About</a>
@@ -31,23 +40,30 @@
   </section>
 
   <!-- Blog Posts -->
-  <main class="blog-list" id="blogList">
+  <main class="blog-list" id="blogList" aria-live="polite">
     <!-- Blog posts will be dynamically inserted here -->
   </main>
 
+  <!-- NoScript Fallback -->
+  <noscript>
+    <div class="noscript-warning">
+      <p>JavaScript is required to load blog posts. Please enable it in your browser settings.</p>
+    </div>
+  </noscript>
+
   <!-- Footer -->
   <footer class="sticky-footer">
-        <div class="footer-links">
-            <a href="./about">About</a>
-            <a href="./contact">Contact</a>
-            <a href="./privacy">Privacy</a>
-            <a href="./terms">Terms & Conditions</a>
-        </div>
-        <p>©<span id="currentYear"></span> Reduce Pic</p>
-    </footer>
+    <div class="footer-links">
+      <a href="./about">About</a>
+      <a href="./contact">Contact</a>
+      <a href="./privacy">Privacy</a>
+      <a href="./terms">Terms & Conditions</a>
+    </div>
+    <p>©<span id="currentYear"></span> ReducePic</p>
+  </footer>
 
-    <script>
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
-    </script>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
