@@ -1,16 +1,16 @@
 [
   {
-    "title": "How to Compress Images for Instagram Without Losing Quality",
-    "date": "2025-04-04",
-    "file": "../blog/how-to-compress-images",
-    "image": "how-to-compress-images.jpg",
-    "excerpt": "Learn how to compress images for Instagram without compromising quality using smart compression techniques."
-  },
-  {
     "title": "How to Reduce Image Size without losing Quality",
     "date": "2025-05-12",
     "file": "../blog/how-to-reduce-image-size",
-    "image": "how-to-reduce-image-size.jpg",
+    "image": "../images/how-to-reduce-image-size.jpg",
     "excerpt": "Discover effective ways to reduce image file size without sacrificing visual fidelity."
+  }, 
+  {
+    "title": "How to Compress Images for Instagram Without Losing Quality",
+    "date": "2025-04-04",
+    "file": "../blog/how-to-compress-images",
+    "image": "../images/how-to-compress-images.jpg",
+    "excerpt": "Learn how to compress images for Instagram without compromising quality using smart compression techniques."
   }
 ]
