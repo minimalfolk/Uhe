@@ -65,5 +65,28 @@
   <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const posts = document.querySelectorAll(".blog-post");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Optional: Animate only once
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    posts.forEach((post) => {
+      observer.observe(post);
+    });
+  });
+  </script>
 </body>
 </html>
