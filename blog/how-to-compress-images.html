@@ -251,22 +251,23 @@
   </div>
 
   <!-- Footer -->
-  <footer class="sticky-footer">  
-    <div class="footer-links">  
-      <a href="/about">About</a>  
-      <a href="/contact">Contact</a>  
-      <a href="/privacy">Privacy</a>  
-      <a href="/terms">Terms</a>  
-      <a href="/blog">Blog</a>
-      <a href="/tools">All Tools</a>
-    </div>  
-    <p>©<span id="currentYear"></span> ReducePic India - The #1 Online Image Compressor</p>  
-  </footer>  
+  <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+            <a href="./privacy">Privacy</a>
+            <a href="./terms">Terms & Conditions</a>
+        </div>
+        <p>©<span id="currentYear"></span> ReducePic</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 
   <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-    function toggleMenu() {
+      function toggleMenu() {
       const nav = document.querySelector(".nav-links");
       nav.classList.toggle("active");
     }
