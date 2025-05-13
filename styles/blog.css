@@ -348,3 +348,54 @@ img.lazy {
     gap: 0.5rem;
   }
 }
+
+/* ============= */
+/* FIX IMAGE OVERFLOW */
+/* ============= */
+
+/* Ensure all images are responsive globally */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent featured image container from overflowing */
+.featured-image {
+  max-width: 100%;
+  overflow-x: hidden;
+  border-radius: var(--border-radius);
+}
+
+/* Enhanced image styling inside featured-image */
+.featured-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  max-height: 450px;
+  border-radius: var(--border-radius);
+}
+
+/* Hover effect for featured images */
+.blog-post:hover .featured-image img {
+  transform: scale(1.02);
+}
+
+/* Responsive tweaks for smaller viewports */
+@media (max-width: 768px) {
+  .featured-image img {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-image img {
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
