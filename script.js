@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         // ✅ Display Details in Requested Format
                         compressedDetails.innerHTML = `
-                            <strong>✅New Size:</strong> <strong>${formatSize(newSize)}</strong><br>
+                            <strong>New Size:</strong> <strong>${formatSize(newSize)}</strong><br>
                             <strong>Saved Size:</strong> ${formatSize(savedSize)}<br>
                             <strong>New Dimensions:</strong> ${newWidth} x ${newHeight}
                         `;
