@@ -55,12 +55,17 @@
 
       <div class="compression-options">
         <p>Target Size: <strong>20KB</strong></p>
-        <label for="formatSelect">Convert to format:</label>
-        <select id="formatSelect">
+        <div class="format-selection">
+        <label for="formatSelect">Convert to:</label>
+          <select id="formatSelect">
           <option value="jpg">JPG (.jpg)</option>
           <option value="jpeg">JPEG (.jpeg)</option>
           <option value="png">PNG (.png)</option>
-        </select>
+          <option value="webp">WebP (.webp)</option>
+          <option value="gif">GIF (.gif)</option>
+          <option value="bmp">BMP (.bmp)</option>
+          </select>
+        </div>
         <button id="compressBtn" disabled>Compress to 20KB</button>
       </div>
 
