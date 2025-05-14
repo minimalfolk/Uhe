@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Resize and compress images to exactly 20KB online. High-quality results ideal for government forms, exams, and online submissions." />
+  <meta name="keywords" content="resize image to 20kb, compress image to 20kb, fixed size image compressor, reduce photo to 20kb, 20kb jpg compressor, image under 20kb, image compressor for govt forms, passport photo 20kb, compress to exact size online, resize photo 20kb high quality" />
+  <meta name="robots" content="index, follow" />
+  <title>Resize Image to 20KB - High Quality Fixed Size Compressor | ReducePic</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resize Image to 20KB Online | ReducePic" />
+  <meta property="og:description" content="Compress images to 20KB without losing quality. Perfect for job portals, exam uploads, and form submissions." />
+  <meta property="og:image" content="https://reducepic.in/image-20kb-tool.jpg" />
+  <meta property="og:url" content="https://reducepic.in/resize-to-20kb.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:title" content="Compress Image to 20KB - Fixed Size Tool" />
+  <meta name="twitter:description" content="Reduce image size to exactly 20KB with best quality using ReducePic. Ideal for government or online form uploads." />
+  <meta name="twitter:image" content="https://reducepic.in/image-20kb-tool.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://reducepic.in/resize-to-20kb.html" />
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <header class="sticky-header">
+    <div class="logo" onclick="window.location.href='/'">ReducePic</div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/resize-to-20kb.html" class="active">20KB Resize</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="compress-image">
+      <h1>Resize Image to Exactly 20KB</h1>
+      <p>Compress and resize your JPG, PNG, or JPEG image to 20 kilobytes without compromising quality.</p>
+
+      <div class="upload-box" id="uploadBox">
+        <p>Drag and drop or click to upload an image.</p>
+        <input type="file" id="imageInput" accept="image/*" hidden />
+      </div>
+
+      <div id="errorMessage" class="error-message" hidden></div>
+
+      <figure id="originalPreview" class="preview-container" hidden>
+        <img id="originalImage" alt="Original image preview" loading="lazy" />
+        <figcaption id="originalDetails"></figcaption>
+      </figure>
+
+      <div class="compression-options">
+        <p>Target Size: <strong>20KB</strong></p>
+        <label for="formatSelect">Convert to format:</label>
+        <select id="formatSelect">
+          <option value="jpg">JPG (.jpg)</option>
+          <option value="jpeg">JPEG (.jpeg)</option>
+          <option value="png">PNG (.png)</option>
+        </select>
+        <button id="compressBtn" disabled>Compress to 20KB</button>
+      </div>
+
+      <div id="loadingIndicator" hidden>
+        <p>Processing image...</p>
+      </div>
+
+      <figure id="compressedPreview" class="preview-container" hidden>
+        <img id="compressedImage" alt="Compressed image preview" loading="lazy" />
+        <figcaption id="compressedDetails"></figcaption>
+        <button id="downloadBtn" disabled>Download Image</button>
+      </figure>
+    </section>
+
+    <section class="features">
+      <h2>Why Resize to 20KB?</h2>
+      <ul>
+        <li>Perfect for exam portals, job applications, and official uploads</li>
+        <li>Compresses images precisely to 20KB</li>
+        <li>Maintains clarity and quality</li>
+        <li>No watermarks, no sign-up needed</li>
+        <li>Works on mobile and desktop</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="sticky-footer">
+    <p>© <span id="currentYear"></span> ReducePic. All rights reserved.</p>
+  </footer>
+
+  <script src="script/resize-to-20kb.js" defer></script>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
