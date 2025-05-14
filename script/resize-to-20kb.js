@@ -49,7 +49,7 @@ function showError(msg) {
   errorMessage.hidden = false;
 }
 
-// Compress with size targeting
+// Compress to ~19.5KB with max quality/dimension
 async function compressToTargetSize(file, targetKB = 19.5, format = 'image/jpeg') {
   const targetBytes = targetKB * 1024;
   const img = new Image();
@@ -59,7 +59,6 @@ async function compressToTargetSize(file, targetKB = 19.5, format = 'image/jpeg'
     img.onload = () => {
       let [width, height] = [img.width, img.height];
       let quality = 0.92;
-
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
 
@@ -81,7 +80,7 @@ async function compressToTargetSize(file, targetKB = 19.5, format = 'image/jpeg'
             quality = 0.92;
             tryCompress();
           } else {
-            resolve(blob); // Best-effort fallback
+            resolve(blob); // Best effort
           }
         }, format, quality);
       };
@@ -91,7 +90,6 @@ async function compressToTargetSize(file, targetKB = 19.5, format = 'image/jpeg'
   });
 }
 
-// Button click handler
 compressBtn.addEventListener('click', async () => {
   if (!originalFile) return;
 
@@ -126,7 +124,6 @@ compressBtn.addEventListener('click', async () => {
   };
 });
 
-// Download logic
 downloadBtn.addEventListener('click', () => {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(compressedBlob);
