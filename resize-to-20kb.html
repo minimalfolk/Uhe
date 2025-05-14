@@ -22,8 +22,207 @@
   <meta name="twitter:image" content="https://reducepic.in/image-20kb-tool.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link rel="canonical" href="https://reducepic.in/resize-to-20kb.html" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+  
+  <style>
+    /* Basic styling for the page */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    
+    .sticky-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+      cursor: pointer;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+    }
+    
+    .hamburger-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .compress-image {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .upload-container {
+      margin: 2rem 0;
+    }
+    
+    .upload-box {
+      border: 2px dashed #bdc3c7;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .upload-box:hover {
+      border-color: #3498db;
+      background-color: #f8f9fa;
+    }
+    
+    .upload-box i {
+      font-size: 3rem;
+      color: #3498db;
+      margin-bottom: 1rem;
+    }
+    
+    .upload-box h3 {
+      margin: 0;
+      color: #2c3e50;
+    }
+    
+    .upload-box p span {
+      color: #3498db;
+      font-weight: bold;
+    }
+    
+    .supported-formats {
+      margin-top: 0.5rem;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    .preview-container {
+      margin: 2rem auto;
+      max-width: 500px;
+      text-align: center;
+    }
+    
+    .preview-container img {
+      max-width: 100%;
+      max-height: 300px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+    
+    .compression-options {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    select, button {
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #bdc3c7;
+    }
+    
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #2980b9;
+    }
+    
+    button:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+    }
+    
+    #loadingIndicator {
+      display: none;
+      margin: 1rem 0;
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      margin: 1rem 0;
+      display: none;
+    }
+    
+    .features {
+      background-color: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    
+    .features ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .sticky-footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #2c3e50;
+      color: white;
+    }
+    
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .upload-box {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -44,18 +243,18 @@
       <h1>Resize Image to 20KB</h1>
       <div class="upload-container">
         <div class="upload-box" id="uploadBox">
-       <i class="fas fa-cloud-upload-alt"></i>
-         <h3>Drop your images here</h3>
-         <p>or <span>browse files</span></p>
-         <input type="file" id="imageInput" accept="image/*" multiple>
+          <i class="fas fa-cloud-upload-alt"></i>
+          <h3>Drop your images here</h3>
+          <p>or <span>browse files</span></p>
+          <input type="file" id="imageInput" accept="image/*" style="display: none;">
         </div>
         <div class="supported-formats">
           <p>Supports: JPG, PNG, WebP | Max 50MB</p>
         </div>
       </div>
-      <div id="errorMessage" class="error-message" hidden></div>
+      <div id="errorMessage" class="error-message"></div>
 
-      <figure id="originalPreview" class="preview-container" hidden>
+      <figure id="originalPreview" class="preview-container" style="display: none;">
         <img id="originalImage" alt="Original image preview" loading="lazy" />
         <figcaption id="originalDetails"></figcaption>
       </figure>
@@ -72,11 +271,11 @@
         <button id="compressBtn" disabled>Compress to 20KB</button>
       </div>
 
-      <div id="loadingIndicator" hidden>
+      <div id="loadingIndicator" style="display: none;">
         <p>Processing image...</p>
       </div>
 
-      <figure id="compressedPreview" class="preview-container" hidden>
+      <figure id="compressedPreview" class="preview-container" style="display: none;">
         <img id="compressedImage" alt="Compressed image preview" loading="lazy" />
         <figcaption id="compressedDetails"></figcaption>
         <button id="downloadBtn" disabled>Download Image</button>
@@ -86,11 +285,11 @@
     <section class="features">
       <h2>Why Compress to 20KB?</h2>
       <ul>
-        <li>Perfect for exams, job portals & government forms</li>
-        <li>Maintains clarity while matching file size</li>
-        <li>No watermark or login needed</li>
-        <li>Supports multiple image formats</li>
-        <li>Works on desktop and mobile devices</li>
+        <li><i class="fas fa-check-circle"></i> Perfect for exams, job portals & government forms</li>
+        <li><i class="fas fa-check-circle"></i> Maintains clarity while matching file size</li>
+        <li><i class="fas fa-check-circle"></i> No watermark or login needed</li>
+        <li><i class="fas fa-check-circle"></i> Supports multiple image formats</li>
+        <li><i class="fas fa-check-circle"></i> Works on desktop and mobile devices</li>
       </ul>
     </section>
   </main>
@@ -104,11 +303,14 @@
     </div>
     <p>©<span id="currentYear"></span> ReducePic</p>
   </footer>
-  <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
 
   <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       // DOM Elements
       const uploadBox = document.getElementById('uploadBox');
@@ -159,12 +361,15 @@
       compressBtn.addEventListener('click', compressImage);
       downloadBtn.addEventListener('click', downloadImage);
 
+      // Set current year in footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
       // Functions
       function handleImageUpload(file) {
         // Reset previous state
-        errorMessage.hidden = true;
-        originalPreview.hidden = true;
-        compressedPreview.hidden = true;
+        errorMessage.style.display = 'none';
+        originalPreview.style.display = 'none';
+        compressedPreview.style.display = 'none';
         compressBtn.disabled = true;
         
         // Validate file
@@ -173,8 +378,8 @@
           return;
         }
         
-        if (file.size > 10 * 1024 * 1024) { // 10MB limit
-          showError('Image size should be less than 10MB');
+        if (file.size > 50 * 1024 * 1024) { // 50MB limit
+          showError('Image size should be less than 50MB');
           return;
         }
         
@@ -185,7 +390,7 @@
         reader.onload = function(e) {
           originalImage.src = e.target.result;
           originalDetails.textContent = `Original: ${formatFileSize(file.size)} • ${file.type}`;
-          originalPreview.hidden = false;
+          originalPreview.style.display = 'block';
           compressBtn.disabled = false;
         };
         reader.readAsDataURL(file);
@@ -195,7 +400,7 @@
         if (!originalFile) return;
         
         // Show loading indicator
-        loadingIndicator.hidden = false;
+        loadingIndicator.style.display = 'block';
         compressBtn.disabled = true;
         
         // Get selected format
@@ -211,14 +416,14 @@
               
               compressedImage.src = compressedUrl;
               compressedDetails.textContent = `Compressed: ${formatFileSize(blob.size)} • ${format}`;
-              compressedPreview.hidden = false;
+              compressedPreview.style.display = 'block';
               downloadBtn.disabled = false;
               
-              loadingIndicator.hidden = true;
+              loadingIndicator.style.display = 'none';
             })
             .catch(error => {
               showError('Error compressing image: ' + error.message);
-              loadingIndicator.hidden = true;
+              loadingIndicator.style.display = 'none';
               compressBtn.disabled = false;
             });
         }, 100);
@@ -315,7 +520,7 @@
       
       function showError(message) {
         errorMessage.textContent = message;
-        errorMessage.hidden = false;
+        errorMessage.style.display = 'block';
       }
       
       function formatFileSize(bytes) {
@@ -324,9 +529,6 @@
         else return (bytes / 1048576).toFixed(2) + ' MB';
       }
     });
-
-    // Set current year in footer
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
