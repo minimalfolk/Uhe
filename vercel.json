@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/resize-to-20KB", "destination": "/resize-to-20Kb.html" },
+    { "source": "/resize-to-20kb", "destination": "/resize-to-20kb.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/blog", "destination": "/blog.html" },
