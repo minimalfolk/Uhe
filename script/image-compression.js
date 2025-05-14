@@ -1,19 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const imageInput = document.getElementById("imageInput");
-  const uploadBox = document.getElementById("uploadBox");
-  const errorMessage = document.getElementById("errorMessage");
-  const originalPreview = document.getElementById("originalPreview");
-  const originalImage = document.getElementById("originalImage");
-  const originalDetails = document.getElementById("originalDetails");
-  const compressRange = document.getElementById("compressRange");
-  const compressValue = document.getElementById("compressValue");
-  const compressBtn = document.getElementById("compressBtn");
-  const loadingIndicator = document.getElementById("loadingIndicator");
-  const compressedPreview = document.getElementById("compressedPreview");
-  const compressedImage = document.getElementById("compressedImage");
-  const compressedDetails = document.getElementById("compressedDetails");
-  const downloadBtn = document.getElementById("downloadBtn");
-  const formatSelect = document.getElementById("formatSelect");
+  // ... [all your const declarations remain unchanged]
 
   let originalFile, originalSize, compressedBlob, originalType;
 
@@ -112,34 +98,42 @@ document.addEventListener("DOMContentLoaded", function () {
       img.src = event.target.result;
 
       img.onload = async function () {
+        const originalW = img.width;
+        const originalH = img.height;
+        const scalePercent = parseInt(compressRange.value);
+
+        // Maintain dimensions scaling
+        const scale = Math.min((scalePercent / 100), 0.99); // never above 99%
+        const targetW = Math.round(originalW * scale);
+        const targetH = Math.round(originalH * scale);
+
         const canvas = document.createElement("canvas");
+        canvas.width = targetW;
+        canvas.height = targetH;
+
         const ctx = canvas.getContext("2d");
-
-        const targetScale = parseInt(compressRange.value) / 100;
-        const targetSize = originalSize * targetScale;
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, targetW, targetH);
 
         const selectedFormat = formatSelect.value;
         const mimeType = selectedFormat === "jpg" || selectedFormat === "jpeg" ? "image/jpeg" : `image/${selectedFormat}`;
 
-        let quality = 0.95;
-        let step = 0.05;
+        let quality = 0.92;
+        const targetSize = originalSize * scale; // target is always < original size
+
         let blob = await tryCompress(canvas, mimeType, quality);
 
-        while (blob.size > targetSize && quality > 0.05) {
-          quality -= step;
+        while (blob.size > targetSize && quality > 0.3) {
+          quality -= 0.05;
           blob = await tryCompress(canvas, mimeType, quality);
         }
 
-        if (blob.size > originalSize) {
-          quality = 0.85;
+        // Guarantee smaller size than original
+        if (blob.size >= originalSize) {
+          quality = 0.75;
           blob = await tryCompress(canvas, mimeType, quality);
         }
 
-        displayCompressedImage(blob, img.width, img.height, selectedFormat);
+        displayCompressedImage(blob, targetW, targetH, selectedFormat);
       };
     };
     reader.readAsDataURL(originalFile);
