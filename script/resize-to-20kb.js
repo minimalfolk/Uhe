@@ -1,3 +1,4 @@
+
 const imageInput = document.getElementById("imageInput");
 const uploadBox = document.getElementById("uploadBox");
 const compressBtn = document.getElementById("compressBtn");
@@ -18,7 +19,6 @@ const loadingIndicator = document.getElementById("loadingIndicator");
 let uploadedFile;
 const TARGET_SIZE = 20 * 1024; // 20KB
 
-// Trigger input on click
 uploadBox.addEventListener("click", () => imageInput.click());
 
 imageInput.addEventListener("change", async (e) => {
@@ -63,7 +63,7 @@ compressBtn.addEventListener("click", async () => {
   compressedImage.src = dataUrl;
   compressedDetails.textContent = `Compressed size: ${(blob.size / 1024).toFixed(2)} KB`;
   downloadBtn.disabled = false;
-  downloadBtn.onclick = () => downloadBlob(blob, `compressed-${Date.now()}.${format}`);
+  downloadBtn.onclick = () => downloadBlob(blob, `compressed-20kb.${format}`);
   compressedPreview.hidden = false;
   loadingIndicator.hidden = true;
   compressBtn.disabled = false;
@@ -94,32 +94,42 @@ async function compressToTargetSize(file, targetSize, format) {
   canvas.height = height;
   ctx.drawImage(imageBitmap, 0, 0);
 
-  let quality = 0.92;
-  let step = 0.03;
-  let minQuality = 0.4;
+  let quality = 0.9;
+  let step = 0.05;
+  let minQuality = 0.2;
+  let scale = 1.0;
+  let blob = null;
 
-  let blob;
+  const mimeMap = {
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    webp: "image/webp",
+    gif: "image/gif",
+    bmp: "image/bmp"
+  };
+
+  const mimeType = mimeMap[format] || "image/jpeg";
+
   while (quality >= minQuality) {
-    const mimeType = format === "png" ? "image/png" : "image/jpeg";
-    blob = await new Promise(resolve => canvas.toBlob(resolve, mimeType, quality));
+    blob = await new Promise((resolve) =>
+      canvas.toBlob(resolve, mimeType, mimeType === "image/jpeg" || mimeType === "image/webp" ? quality : undefined)
+    );
     if (blob && blob.size <= targetSize) break;
     quality -= step;
   }
 
-  // If still too large, resize and try again
-  if (blob.size > targetSize) {
-    let scale = 0.95;
-    while (scale > 0.5) {
-      canvas.width = width * scale;
-      canvas.height = height * scale;
-      ctx.drawImage(imageBitmap, 0, 0, canvas.width, canvas.height);
-      blob = await new Promise(resolve => canvas.toBlob(resolve, format === "png" ? "image/png" : "image/jpeg", quality));
-      if (blob.size <= targetSize) break;
-      scale -= 0.05;
-    }
+  while (blob && blob.size > targetSize && scale > 0.5) {
+    scale -= 0.05;
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    ctx.drawImage(imageBitmap, 0, 0, canvas.width, canvas.height);
+    blob = await new Promise((resolve) =>
+      canvas.toBlob(resolve, mimeType, mimeType === "image/jpeg" || mimeType === "image/webp" ? quality : undefined)
+    );
   }
 
-  if (blob.size > targetSize) return null;
+  if (!blob || blob.size > targetSize) return null;
 
   return {
     blob,
@@ -128,7 +138,7 @@ async function compressToTargetSize(file, targetSize, format) {
 }
 
 function blobToDataURL(blob) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(reader.result);
     reader.readAsDataURL(blob);
