@@ -24,265 +24,35 @@
 
   <link rel="canonical" href="https://reducepic.in/resize-to-20kb.html" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-  <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f5f5f5;
-      padding-top: 70px;
-      padding-bottom: 60px;
-    }
-
-    /* Header Styles */
-    .sticky-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: #2c3e50;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #34495e;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #3498db;
-    }
-
-    .nav-links a.active {
-      color: #3498db;
-      font-weight: 600;
-    }
-
-    /* Main Content Styles */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .compress-image {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-
-    p {
-      margin-bottom: 20px;
-      color: #7f8c8d;
-    }
-
-    /* Upload Box Styles */
-    .upload-box {
-      border: 2px dashed #bdc3c7;
-      border-radius: 6px;
-      padding: 40px 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-bottom: 20px;
-    }
-
-    .upload-box:hover {
-      border-color: #3498db;
-      background-color: #f8f9fa;
-    }
-
-    /* Preview Container Styles */
-    .preview-container {
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .preview-container img {
-      max-width: 100%;
-      max-height: 300px;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    figcaption {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #7f8c8d;
-    }
-
-    /* Compression Options Styles */
-    .compression-options {
-      background-color: #f8f9fa;
-      padding: 20px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #bdc3c7;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      background-color: #fff;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background-color 0.3s;
-      width: 100%;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    button:disabled {
-      background-color: #bdc3c7;
-      cursor: not-allowed;
-    }
-
-    /* Features Section */
-    .features {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    h2 {
-      font-size: 22px;
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-
-    ul {
-      list-style-position: inside;
-      margin-bottom: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-      color: #7f8c8d;
-    }
-
-    /* Footer Styles */
-    .sticky-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #fff;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Error Message */
-    .error-message {
-      color: #e74c3c;
-      background-color: #fadbd8;
-      padding: 10px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* Loading Indicator */
-    #loadingIndicator {
-      text-align: center;
-      padding: 20px;
-      color: #3498db;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .sticky-header {
-        padding: 15px 20px;
-      }
-
-      .nav-links {
-        gap: 15px;
-      }
-
-      main {
-        padding: 10px;
-      }
-
-      .compress-image, .features {
-        padding: 20px;
-      }
-    }
-  </style>
 </head>
 
 <body>
   <header class="sticky-header">
     <div class="logo" onclick="window.location.href='./'">ReducePic</div>
-    <nav class="nav-links">
-      <a href="./">Home</a>
-      <a href="./resize-to-20kb" class="active">20KB Resize</a>
+    <button class="hamburger-menu" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
       <a href="./blog">Blog</a>
+      <a href="./about">About</a>
+      <a href="./contact">Contact</a>
+      <a href="./privacy">Privacy</a>
+      <a href="./terms">Terms & Conditions</a>
     </nav>
   </header>
 
   <main>
     <section class="compress-image">
-      <h1>Resize Image to Exactly 20KB</h1>
-      <p>Compress JPG, PNG, or JPEG to exactly 20KB without losing quality. Ideal for forms and official uploads.</p>
-
-      <div class="upload-box" id="uploadBox">
-        <p>Drag and drop or click here to upload an image.</p>
-        <input type="file" id="imageInput" accept="image/*" hidden />
+      <h1>Resize Image to 20KB</h1>
+      <div class="upload-container">
+        <div class="upload-box" id="uploadBox">
+       <i class="fas fa-cloud-upload-alt"></i>
+         <h3>Drop your images here</h3>
+         <p>or <span>browse files</span></p>
+         <input type="file" id="imageInput" accept="image/*" multiple>
+        </div>
+        <div class="supported-formats">
+          <p>Supports: JPG, PNG, WebP | Max 50MB</p>
+        </div>
       </div>
-
       <div id="errorMessage" class="error-message" hidden></div>
 
       <figure id="originalPreview" class="preview-container" hidden>
@@ -326,8 +96,17 @@
   </main>
 
   <footer class="sticky-footer">
-    <p>© <span id="currentYear"></span> ReducePic</p>
+    <div class="footer-links">
+      <a href="./about">About</a>
+      <a href="./contact">Contact</a>
+      <a href="./privacy">Privacy</a>
+      <a href="./terms">Terms & Conditions</a>
+    </div>
+    <p>©<span id="currentYear"></span> ReducePic</p>
   </footer>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
