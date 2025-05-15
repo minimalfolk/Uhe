@@ -178,15 +178,10 @@
   <div id="errorMessage" class="error-message" hidden></div>
 
   <!-- Original Image Preview -->
-  <div class="image-details-card" id="originalPreview" hidden>
-  <img id="originalImage" src="" alt="Original image preview" loading="lazy" />
-  <div class="file-meta">
-    <h4 id="fileName">Image.jpg</h4>
-    <p id="fileDimensions">Dimensions: --</p>
-    <p id="fileSize">Size: --</p>
-    <p id="fileFormat">Format: --</p>
-  </div>
-  </div>
+  <figure id="originalPreview" class="preview-container" style="display: none;">
+        <img id="originalImage" alt="Original image preview" loading="lazy" />
+        <figcaption id="originalDetails"></figcaption>
+  </figure>
 
   <!-- Compression Options -->
   <div class="compression-options">
