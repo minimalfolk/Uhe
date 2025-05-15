@@ -1,3 +1,4 @@
+// Display original image details
 function displayImageDetails(file) {
   const reader = new FileReader();
   reader.onload = function (e) {
@@ -17,6 +18,8 @@ function displayImageDetails(file) {
   };
   reader.readAsDataURL(file);
 }
+
+// Compress image to target size (in KB)
 function compressToTargetSize(file, targetSizeKB, callback) {
   const reader = new FileReader();
   reader.onload = function (event) {
@@ -34,10 +37,26 @@ function compressToTargetSize(file, targetSizeKB, callback) {
       function tryCompress() {
         const dataUrl = canvas.toDataURL('image/jpeg', quality);
         const byteString = atob(dataUrl.split(',')[1]);
-        const sizeKB = byteString.length / 1024;
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const uintArray = new Uint8Array(arrayBuffer);
+
+        for (let i = 0; i < byteString.length; i++) {
+          uintArray[i] = byteString.charCodeAt(i);
+        }
+
+        const blob = new Blob([uintArray], { type: 'image/jpeg' });
+        const sizeKB = blob.size / 1024;
 
         if (sizeKB <= targetSizeKB || quality <= 0.05) {
-          callback(dataUrl, Math.round(sizeKB));
+          callback({
+            dataUrl,
+            blob,
+            width: img.width,
+            height: img.height,
+            originalSize: file.size,
+            finalSize: blob.size,
+            fileName: file.name
+          });
         } else {
           quality -= step;
           tryCompress();
