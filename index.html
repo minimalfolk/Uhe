@@ -6,7 +6,7 @@
   <meta name="description" content="Compress and resize images online for free without losing quality. Optimize images for websites, government forms, blogs, and social media." />
   <meta name="keywords" content="image compressor, resize image, reduce image size, compress JPG PNG GIF, online image resizer, image shrinker, photo optimizer, image resizer India" />
   <meta name="robots" content="index, follow" />
-  <title>Resize Image Online Free | Compress JPG PNG GIF - ReducePic</title>
+  <title>Resize Image Online Free - Compress JPG, PNG, GIF | ReducePic</title>
 
   <!-- Open Graph Meta -->
   <meta property="og:title" content="Free Online Image Compressor | ReducePic" />
@@ -34,7 +34,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/new.css" />
 
   <!-- Google Tag Manager -->
   <script>
@@ -158,26 +159,36 @@
 
   <main>
     <section class="compress-image">
-      <h1>Compress & Resize Your Image Instantly</h1>
-      <p>Upload your image and compress it without losing quality. Simple, fast, and free.</p>
-
-      <div class="upload-box" id="uploadBox">
-        <label for="imageInput">Drag and drop or click here to upload</label>
-        <input type="file" id="imageInput" accept="image/*" hidden />
-      </div>
+      <h1>Resize Your Image</h1>
+      <div class="upload-container">
+       <div class="upload-box" id="uploadBox">
+       <i class="fas fa-cloud-upload-alt"></i>
+       <h3>Drop your images here</h3>
+       <p>or <span>browse files</span></p>
+       <input type="file" id="imageInput" accept="image/*" multiple>
+       </div>
+       <div class="supported-formats">
+       <p>Supports: JPG, PNG, WebP | Max 50MB</p>
+       </div>
+      </div>>
 
       <div id="errorMessage" class="error-message" hidden></div>
 
-      <figure id="originalPreview" class="preview-container" hidden>
-        <img id="originalImage" alt="Original image preview" loading="lazy" />
-        <figcaption id="originalDetails"></figcaption>
-      </figure>
+      <div class="image-details-card" id="originalPreview" hidden>
+  <img id="originalImage" alt="Original image preview" loading="lazy" />
+  
+  <div class="file-meta">
+    <h4 id="fileName">Image.jpg</h4>
+    <p id="fileDimensions">Dimensions: --</p>
+    <p id="fileSize">Size: --</p>
+    <p id="fileFormat">Format: --</p>
+  </div>
+      </div>
 
       <div class="compression-options">
-        <label for="compressRange">Compression Level:</label>
-        <input type="range" id="compressRange" min="1" max="99" value="50" aria-valuemin="1" aria-valuemax="99" />
-        <span id="compressValue">50%</span>
-
+       <label for="targetSize">Target Size (KB):</label>
+       <input type="number" id="targetSize" min="10" max="5000" step="100" placeholder="Enter size in KB" />
+      </div>
         <label for="formatSelect">Output Format:</label>
         <select id="formatSelect">
           <option value="jpg">JPG</option>
@@ -195,12 +206,28 @@
         <p>Compressing your image...</p>
       </div>
 
-      <figure id="compressedPreview" class="preview-container" hidden>
-        <img id="compressedImage" alt="Compressed image preview" loading="lazy" />
-        <figcaption id="compressedDetails"></figcaption>
-        <p id="sizeSaved"></p>
-        <button id="downloadBtn" disabled>Download</button>
-      </figure>
+      <!-- Container for dynamically injected compressed image cards -->
+       <div id="compressedPreviewContainer"></div>
+       <!-- Hidden reusable template (optional, if using cloning or templating) -->
+       <template id="compressedImageTemplate">
+        <div class="compressed-details-card">
+        <img class="compressed-image" alt="Compressed image preview" loading="lazy" />
+          <div class="file-meta">
+          <h4 class="file-name">Compressed_Image.jpg</h4>
+          <p class="file-dimensions">Dimensions: --</p>
+          <p class="file-size">Size: --</p>
+          <p class="file-format">Format: --</p>
+          <p class="file-saved">Saved: --%</p>
+          </div>
+         <button class="download-btn" disabled>Download</button>
+       </div>
+       </template>
+
+         <!-- Download All Controls -->
+      <div id="bulkDownloadControls" class="bulk-download" hidden>
+        <button id="downloadAllBtn">Download All</button>
+        <button id="downloadZipBtn">Download All as ZIP</button>
+      </div>
     </section>
 
     <section class="features">
@@ -299,7 +326,8 @@
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 </script>
 
-  <script src="script/image-compression.js" defer></script>
+  <script src="script/main.js" defer></script>
   <script src="script/navigation.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </body>
 </html>
