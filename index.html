@@ -207,22 +207,11 @@
   </div>
 
   <!-- Compressed Images Preview -->
-  <div id="compressedPreviewContainer"></div>
-
-  <!-- Template for Compressed Image Card -->
-  <template id="compressedImageTemplate">
-    <div class="compressed-details-card">
-      <img class="compressed-image" alt="Compressed image preview" loading="lazy" />
-      <div class="file-meta">
-        <h4 class="file-name">Compressed_Image.jpg</h4>
-        <p class="file-dimensions">Dimensions: --</p>
-        <p class="file-size">Size: --</p>
-        <p class="file-format">Format: --</p>
-        <p class="file-saved">Saved: --%</p>
-      </div>
-      <button class="download-btn" disabled>Download</button>
-    </div>
-  </template>
+  <figure id="compressedPreview" class="preview-container" style="display: none;">
+        <img id="compressedImage" alt="Compressed image preview" loading="lazy" />
+        <figcaption id="compressedDetails"></figcaption>
+        <button id="downloadBtn" disabled>Download Image</button>
+  </figure>
 
   <!-- Bulk Download Controls -->
   <div id="bulkDownloadControls" class="bulk-download" hidden>
