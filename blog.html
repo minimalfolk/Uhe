@@ -11,7 +11,10 @@
   <meta name="author" content="ReducePic Team" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/new.css" />
+  <link rel="stylesheet" href="styles/navigation.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
   <link rel="stylesheet" href="styles/blog.css" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
@@ -52,19 +55,68 @@
   </noscript>
 
   <!-- Footer -->
-  <footer class="sticky-footer">
-    <div class="footer-links">
-      <a href="./about">About</a>
-      <a href="./contact">Contact</a>
-      <a href="./privacy">Privacy</a>
-      <a href="./terms">Terms & Conditions</a>
-    </div>
-    <p>©<span id="currentYear"></span> ReducePic</p>
-  </footer>
+  <footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <div class="footer-logo">
+          <i class="fas fa-compress-alt" aria-hidden="true"></i>
+          <span>ReducePic</span>
+        </div>
+        <p>ReducePic is your go-to tool for fast, free, and high-quality image compression and resizing.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/resizyindia" target="_blank" rel="noopener" aria-label="ReducePic on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/company/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
 
-  <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="/">Reduce Any Image</a></li>
+          <li><a href="./resize-to-20kb">Resize to 20Kb</a></li>
+          <li><a href="#formats">Supported Formats</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="./blog">Blog & Guides</a></li>
+          <li><a href="#tutorials">How-To Tutorials</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="./about">About Us</a></li>
+          <li><a href="./contact">Contact</a></li>
+          <li><a href="./sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="./privacy">Privacy Policy</a></li>
+          <li><a href="./terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> ReducePic - Made In India🇮🇳</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>
+
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     const posts = document.querySelectorAll(".blog-post");
