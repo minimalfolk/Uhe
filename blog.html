@@ -11,30 +11,30 @@
   <meta name="author" content="ReducePic Team" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles/new.css" />
-  <link rel="stylesheet" href="styles/navigation.css" />
-  <link rel="stylesheet" href="styles/footer.css" />
-  <link rel="stylesheet" href="styles/blog.css" />
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Scripts -->
-  <script src="js/blog.js" defer></script>
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <!-- Header -->
-  <header class="sticky-header">
-    <a href="./" class="logo" aria-label="ReducePic Home">ReducePic</a>
-    <div class="hamburger-menu" onclick="toggleMenu()" aria-label="Toggle menu">☰</div>
-    <nav class="nav-links" role="navigation" aria-label="Main">
-      <a href="./blog" class="active">Blog</a>
-      <a href="./privacy">Privacy</a>
-      <a href="./about">About</a>
-      <a href="./terms">Terms & Conditions</a>
-      <a href="./contact">Contact</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/text.css" />
+    <link rel="stylesheet" href="styles/blog.css" />
+    <script src="js/blog.js" defer></script>  
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+</head>  
+<body>  
+    <!-- Header -->  
+    <header class="sticky-header">
+    <div class="logo" onclick="window.location.href='./'">ReducePic</div>
+    <button class="hamburger-menu" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/blog">Blog</a>
+      <a href="/about" class="active">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </nav>
-  </header>
+    </header>
 
   <!-- Blog Header -->
   <section class="blog-header">
