@@ -1,54 +1,176 @@
-/* Blog Post Feature Image - Full Width Responsive */
-.blog-post-featured-image-container {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-  max-height: 60vh;
+/* Blog Page Layout */
+.blog-header {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.07), rgba(255, 255, 255, 0.07));
+  margin-bottom: 2rem;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-.blog-post-featured-image {
+.blog-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.blog-header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+/* Blog List Container */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 100%;
+}
+
+/* Blog Post Card */
+.blog-post {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  margin-bottom: 2rem;
 }
 
-/* For the blog list thumbnail images (keeping your existing thumbnail style) */
+/* Animate on scroll */
+.blog-post.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Image Container */
 .blog-post-image-container {
   width: 100%;
+  height: 100vh;
   overflow: hidden;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .blog-post-image {
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
 }
 
-/* Responsive Adjustments */
-@media (min-width: 768px) {
-  .blog-post-featured-image-container {
-    max-height: 50vh;
+.blog-post:hover .blog-post-image {
+  transform: scale(1.02);
+}
+
+/* Blog Content */
+.blog-post-content {
+  padding: 2rem 1.5rem;
+}
+
+.blog-post-date {
+  font-size: 0.9rem;
+  color: var(--gray-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.blog-post-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blog-post-title a:hover {
+  color: var(--primary-color);
+}
+
+.blog-post-excerpt {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-read-more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: gap 0.3s ease;
+  gap: 0.5rem;
+}
+
+.blog-post-read-more:hover {
+  color: var(--primary-dark);
+  gap: 0.7rem;
+}
+
+.blog-post-read-more i {
+  transition: var(--transition);
+}
+
+/* Section Break Style */
+.section-break {
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 2rem auto 4rem;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-post-image-container {
+    height: 70vh;
   }
-  
-  .blog-post-image {
-    height: 250px;
+
+  .blog-post-title {
+    font-size: 1.6rem;
+  }
+
+  .blog-post-content {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .blog-post-featured-image-container {
-    max-height: 40vh;
+  .blog-header h1 {
+    font-size: 2rem;
   }
-  
-  .blog-post-image {
-    height: 180px;
+
+  .blog-header p {
+    font-size: 1rem;
+  }
+
+  .blog-post-image-container {
+    height: 60vh;
+  }
+
+  .blog-post-title {
+    font-size: 1.4rem;
+  }
+
+  .blog-post-content {
+    padding: 1rem;
+  }
+
+  .blog-post-excerpt {
+    font-size: 1rem;
   }
 }
