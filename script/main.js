@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let filesQueue = [];
   let currentIndex = 0;
   let compressedBlobs = [];
-  const seenFiles = new Set();
 
   // Event Listeners
   uploadBox.addEventListener('click', () => imageInput.click());
@@ -54,40 +53,35 @@ document.addEventListener('DOMContentLoaded', function() {
   function handleFileSelect(e) {
     const files = Array.from(e.target.files);
 
-    const uniqueFiles = [];
-    const newSeen = new Set();
-
-    for (const file of files) {
-      const identifier = `${file.name}-${file.size}-${file.lastModified}`;
-      if (!seenFiles.has(identifier) && !newSeen.has(identifier)) {
-        newSeen.add(identifier);
-        uniqueFiles.push(file);
-      }
-    }
-
-    if (filesQueue.length + uniqueFiles.length > 10) {
+    if (files.length > 10) {
       showError('Maximum 10 images allowed.');
       return;
     }
+
+    const uniqueFiles = [];
+    const seen = new Set();
+    
+    files.forEach(file => {
+      const identifier = `${file.name}-${file.size}-${file.lastModified}`;
+      if (!seen.has(identifier)) {
+        seen.add(identifier);
+        uniqueFiles.push(file);
+      }
+    });
 
     if (uniqueFiles.length === 0) {
       showError('Duplicate files are not allowed.');
       return;
     }
 
-    uniqueFiles.forEach(file => {
-      const identifier = `${file.name}-${file.size}-${file.lastModified}`;
-      seenFiles.add(identifier);
-    });
-
-    filesQueue = filesQueue.concat(uniqueFiles);
+    filesQueue = uniqueFiles;
+    currentIndex = 0;
+    compressedBlobs = [];
     hideError();
 
-    if (filesQueue.length > 0) {
-      showImagePreview(filesQueue[currentIndex]);
-      compressBtn.disabled = false;
-      downloadBtn.disabled = true;
-    }
+    showImagePreview(filesQueue[0]);
+    compressBtn.disabled = false;
+    downloadBtn.disabled = true;
   }
 
   function showImagePreview(file) {
@@ -165,16 +159,100 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  async function compressImage(file, targetSizeKB, format) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = async function(event) {
+        const img = new Image();
+        img.onload = async function() {
+          try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Calculate initial dimensions (maintain aspect ratio)
+            let width = img.width;
+            let height = img.height;
+            
+            // First pass: Reduce dimensions if needed
+            const MAX_DIMENSION = Math.min(Math.max(img.width, img.height), 2000);
+            const ratio = Math.min(MAX_DIMENSION / width, MAX_DIMENSION / height);
+            width *= ratio;
+            height *= ratio;
+            
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // Second pass: Adjust quality to reach target size
+            let quality = 0.85;
+            let minQuality = 0.1;
+            let maxQuality = 1.0;
+            let iterations = 0;
+            const maxIterations = 15;
+            
+            let mimeType = 'image/jpeg';
+            if (format === 'png') mimeType = 'image/png';
+            else if (format === 'webp') mimeType = 'image/webp';
+            else if (format === 'gif') mimeType = 'image/gif';
+            else if (format === 'bmp') mimeType = 'image/bmp';
+            
+            let resultUrl;
+            
+            while (iterations < maxIterations) {
+              iterations++;
+              resultUrl = canvas.toDataURL(mimeType, quality);
+              const sizeKB = (resultUrl.length * 0.75) / 1024;
+              
+              if (Math.abs(sizeKB - targetSizeKB) < targetSizeKB * 0.1) {
+                break;
+              }
+              
+              if (sizeKB > targetSizeKB) {
+                maxQuality = quality;
+                quality = (quality + minQuality) / 2;
+                
+                // If quality adjustment isn't enough, reduce dimensions slightly
+                if (iterations > 5 && sizeKB > targetSizeKB * 1.5) {
+                  width *= 0.95;
+                  height *= 0.95;
+                  canvas.width = width;
+                  canvas.height = height;
+                  ctx.drawImage(img, 0, 0, width, height);
+                }
+              } else {
+                minQuality = quality;
+                quality = (quality + maxQuality) / 2;
+              }
+            }
+            
+            resolve(resultUrl);
+          } catch (error) {
+            reject(error);
+          }
+        };
+        img.onerror = function() {
+          reject(new Error('Failed to load image'));
+        };
+        img.src = event.target.result;
+      };
+      reader.onerror = function() {
+        reject(new Error('Failed to read file'));
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   function downloadAllCompressedImages() {
     if (compressedBlobs.length === 0) {
       showError('No compressed images to download');
       return;
     }
-
+    
     compressedBlobs.forEach(({ blob, name }, index) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
+      // Preserve original extension or use new format
       const ext = formatSelect.value || name.split('.').pop();
       a.download = `compressed_${index + 1}_${name.replace(/\.[^/.]+$/, '')}.${ext}`;
       document.body.appendChild(a);
