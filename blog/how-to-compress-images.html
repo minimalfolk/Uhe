@@ -7,8 +7,14 @@
   <meta name="description" content="✅ Ultimate 2025 Guide: Learn how to compress images for Instagram without quality loss. Discover the best image compression tools & techniques for faster uploads & perfect quality every time!" />
   <meta name="keywords" content="how to compress images, compress images for Instagram, reduce image size, image compressor, online image optimization, best image compressor, free image resizer, compress JPEG, compress PNG, Instagram image size, ReducePic India" />
   <link rel="canonical" href="https://reducepic.in/blog/how-to-compress-images" />
-  <link rel="stylesheet" href="../styles/main.css">
-  <link rel="stylesheet" href="../styles/blogpost.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/text.css" />
+    <link rel="stylesheet" href="styles/blogpost.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,17 +63,16 @@
 <body>
   <!-- Sticky Header -->
   <header class="sticky-header">
-    <div class="logo" onclick="window.location.href='/'">ReducePic</div>
-    <button class="hamburger-menu" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+    <div class="logo" onclick="window.location.href='./'">ReducePic</div>
+    <button class="hamburger-menu" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="/blog">Blog</a>
+      <a href="/blog" class="active">Blog</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
     </nav>
   </header>
-
   <div class="blog-container">
     <article class="blog-post" itemscope itemtype="http://schema.org/Article">
       <header class="post-header">
@@ -251,17 +256,65 @@
   </div>
 
   <!-- Footer -->
-  <footer class="sticky-footer">
-        <div class="footer-links">
-            <a href="./about">About</a>
-            <a href="./contact">Contact</a>
-            <a href="./privacy">Privacy</a>
-            <a href="./terms">Terms & Conditions</a>
+  <footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <div class="footer-logo">
+          <i class="fa-duotone fa-solid fa-minimize" aria-hidden="true"></i>
+          <span>ReducePic India</span>
         </div>
-        <p>©<span id="currentYear"></span> ReducePic</p>
-    </footer>
+        <p>ReducePic is your go-to tool for fast, free, and high-quality image compression and resizing.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/resizyindia" target="_blank" rel="noopener" aria-label="ReducePic on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/company/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
 
-    <script src="script.js" defer></script>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="/">Reduce Any Image</a></li>
+          <li><a href="./resize-to-20kb">Resize to 20Kb</a></li>
+          <li><a href="#formats">Supported Formats</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="./blog">Blog & Guides</a></li>
+          <li><a href="#tutorials">How-To Tutorials</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="./about">About Us</a></li>
+          <li><a href="./contact">Contact</a></li>
+          <li><a href="./sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="./privacy">Privacy Policy</a></li>
+          <li><a href="./terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> ReducePic - Made In India🇮🇳</p>
+    </div>
+  </div>
+  </footer>
+
+    <script src="script/navigation.js" defer></script>
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
