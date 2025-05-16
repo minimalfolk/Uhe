@@ -4,60 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions | ReducePic.in</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/terms.css">
-    <script src="script.js" defer></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/text.css" />
+    <link rel="stylesheet" href="styles/terms.css" />
+    <script src="script.js" defer></script>  
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <!-- Header -->
+</head>  
+<body>  
+    <!-- Header -->  
     <header class="sticky-header">
-    <a href="./" class="logo">ReducePic</a>
-    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-    <nav class="nav-links">
-        <a href="./privacy">Privacy</a>
-        <a href="./about">About</a>
-        <a href="./terms" class="active">Terms & Conditions</a>
-        <a href="./contact">Contact</a>
+    <div class="logo" onclick="window.location.href='./'">ReducePic</div>
+    <button class="hamburger-menu" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms" class="active">Terms</a>
     </nav>
     </header>
 
     <main>
         <section class="terms-section">
-    <h1>Terms and Conditions</h1>
-    <p>By using ReducePic.in, you agree to the following terms:</p>
+  <h1>Terms and Conditions</h1>
+  <p>By accessing and using ReducePic.in, you agree to comply with the following terms and conditions. Please read them carefully before using our services.</p>
 
-    <h2>1. Usage</h2>
-    <p>You may use ReducePic.in for personal and non-commercial purposes. Redistribution or resale of compressed images is prohibited.</p>
+  <h2>1. Permitted Use</h2>
+  <p>ReducePic.in is intended for personal and non-commercial use. You may not use our service for unlawful purposes or redistribute/resell images processed through the platform without prior written permission.</p>
 
-    <h2>2. Data Privacy</h2>
-    <p>We do not store uploaded images. All images are processed temporarily and deleted automatically after compression. For more details, see our <a href="./privacy">Privacy Policy</a>.</p>
+  <h2>2. Image Handling and Data Privacy</h2>
+  <p>We value your privacy. Uploaded images are processed in real-time and are automatically deleted shortly after compression. We do not store, view, or share your files. For full details, please review our <a href="./privacy">Privacy Policy</a>.</p>
 
-    <h2>3. Liability</h2>
-    <p>Use ReducePic.in at your own risk. We are not responsible for any data loss, technical issues, or damages resulting from our service.</p>
+  <h2>3. Disclaimer and Limitation of Liability</h2>
+  <p>Our service is provided "as is" without warranties of any kind. We do not guarantee uninterrupted service or error-free operation. Use of ReducePic.in is at your own risk, and we are not liable for any data loss, inaccuracies, or damages arising from your use of the platform.</p>
 
-    <h2>4. Intellectual Property</h2>
-    <p>All rights to the website and its technology belong to ReducePic.in. Unauthorized copying or distribution is not allowed.</p>
+  <h2>4. Intellectual Property</h2>
+  <p>All content, features, and technology on ReducePic.in, including but not limited to software, design, and branding, are the property of ReducePic.in and are protected by applicable intellectual property laws. Unauthorized reproduction or distribution is strictly prohibited.</p>
 
-    <h2>5. Modifications</h2>
-    <p>We may update these terms at any time. Continued use after changes means you accept the new terms.</p>
+  <h2>5. Changes to Terms</h2>
+  <p>We reserve the right to modify these terms at any time. Updates will be posted on this page with the effective date. Continued use of the service after any changes constitutes your acceptance of the updated terms.</p>
 
-    <h2>6. Governing Law</h2>
-    <p>These terms are governed by the laws of India, and any disputes will be handled under its jurisdiction.</p>
+  <h2>6. Third-Party Services</h2>
+  <p>ReducePic.in may use third-party tools, such as analytics or advertising services (e.g., Google AdSense), which may collect non-personal data through cookies or similar technologies. These services operate under their respective privacy policies.</p>
 
-    <h2>7. Contact</h2>
-    <p>For questions, contact us at <a href="mailto:support@reducepic.in">support@reducepic.in</a>.</p>
+  <h2>7. Governing Law</h2>
+  <p>These terms shall be governed and interpreted in accordance with the laws of India. Any disputes arising under these terms will be subject to the exclusive jurisdiction of Indian courts.</p>
+
+  <h2>8. Contact Information</h2>
+  <p>If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="mailto:support@reducepic.in">support@reducepic.in</a>.</p>
         </section>
     </main>
 
-    <footer class="sticky-footer">
-        <div class="footer-links">
-            <a href="./about">About</a>
-            <a href="./contact">Contact</a>
-            <a href="./privacy">Privacy</a>
-            <a href="./terms">Terms & Conditions</a>
+    <footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <div class="footer-logo">
+          <i class="fa-duotone fa-solid fa-minimize" aria-hidden="true"></i>
+          <span>ReducePic India</span>
         </div>
-        <p>©<span id="currentYear"></span> Reduce Pic</p>
+        <p>ReducePic is your go-to tool for fast, free, and high-quality image compression and resizing.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/resizyindia" target="_blank" rel="noopener" aria-label="ReducePic on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/company/reducepic" target="_blank" rel="noopener" aria-label="ReducePic on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="/">Reduce Any Image</a></li>
+          <li><a href="./resize-to-20kb">Resize to 20Kb</a></li>
+          <li><a href="#formats">Supported Formats</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="./blog">Blog & Guides</a></li>
+          <li><a href="#tutorials">How-To Tutorials</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="./about">About Us</a></li>
+          <li><a href="./contact">Contact</a></li>
+          <li><a href="./sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="./privacy">Privacy Policy</a></li>
+          <li><a href="./terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> ReducePic - Made In India🇮🇳</p>
+    </div>
+  </div>
     </footer>
 
     <script>
