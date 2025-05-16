@@ -216,6 +216,78 @@
   }
 }
 
+/* Blog Post Image Styling - Responsive & Screen-Fit */
+.blog-post-featured-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin: 0 auto 2.5rem;
+  display: block;
+  box-shadow: var(--box-shadow);
+}
+
+.blog-post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* For images that should maintain container width */
+.blog-post-content .image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin: 1.5rem 0;
+  box-shadow: var(--box-shadow);
+}
+
+.blog-post-content .image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* For full-width images with constrained height */
+.blog-post-content .image-fullwidth {
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-post-featured-image {
+    max-height: 300px;
+  }
+  
+  .blog-post-content .image-fullwidth {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-post-featured-image {
+    max-height: 250px;
+  }
+  
+  .blog-post-content .image-fullwidth {
+    max-height: 200px;
+  }
+}
 /* Animation Delays for Staggered Effect */
 .blog-post:nth-child(1) { transition-delay: 0.1s; }
 .blog-post:nth-child(2) { transition-delay: 0.2s; }
