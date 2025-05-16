@@ -121,5 +121,15 @@
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+        // Optional: Add form validation or loading indicator
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+  
+        // FormSubmit will handle the actual submission
+        });
+    </script>
 </body>
 </html>
