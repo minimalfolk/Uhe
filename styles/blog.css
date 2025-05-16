@@ -1,4 +1,4 @@
-/* Updated Blog Page Styles with Responsive Images */
+/* Updated Blog Page Styles with Full-Width Responsive Images and Section Breaks */
 .blog-header {
   text-align: center;
   padding: 3rem 1rem;
@@ -23,21 +23,26 @@
 }
 
 .blog-list {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem 3rem;
-  display: grid;
+  padding: 0 0 3rem;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
 .blog-post {
   background-color: white;
-  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
   box-shadow: var(--box-shadow);
   overflow: hidden;
   transition: var(--transition);
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
 }
 
 .blog-post.visible {
@@ -51,17 +56,34 @@
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Updated Image Styling - Responsive and Screen-Fit */
+/* Section Break Style */
+.blog-post + .blog-post {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.blog-post + .blog-post::before {
+  content: '• • •';
+  display: block;
+  text-align: center;
+  color: var(--gray-color);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.3em;
+}
+
+/* Full-Width Image Styling */
 .blog-post-image-container {
-  position: relative;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   overflow: hidden;
 }
 
 .blog-post-image {
   width: 100%;
   height: auto;
-  aspect-ratio: 16/9; /* Maintain consistent aspect ratio */
+  aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
@@ -127,10 +149,6 @@
 }
 
 /* Premium Features */
-.blog-post {
-  position: relative;
-}
-
 .blog-post::before {
   content: '';
   position: absolute;
@@ -176,20 +194,9 @@
   .blog-header {
     padding: 4rem 1rem;
   }
-  
+
   .blog-header h1 {
     font-size: 3rem;
-  }
-  
-  .blog-list {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2.5rem;
-    padding-bottom: 4rem;
-  }
-  
-  /* Desktop specific image height */
-  .blog-post-image {
-    max-height: 250px;
   }
 }
 
@@ -197,97 +204,30 @@
   .blog-header h1 {
     font-size: 2rem;
   }
-  
+
   .blog-header p {
     font-size: 1rem;
   }
-  
+
   .blog-post-content {
     padding: 1.5rem;
   }
-  
+
   .blog-post-title {
     font-size: 1.3rem;
   }
-  
-  /* Mobile specific image height */
-  .blog-post-image {
-    max-height: 200px;
+
+  .blog-post + .blog-post {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .blog-post + .blog-post::before {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
-/* Blog Post Image Styling - Responsive & Screen-Fit */
-.blog-post-featured-image {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-  margin: 0 auto 2.5rem;
-  display: block;
-  box-shadow: var(--box-shadow);
-}
-
-.blog-post-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-}
-
-/* For images that should maintain container width */
-.blog-post-content .image-container {
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--border-radius);
-  margin: 1.5rem 0;
-  box-shadow: var(--box-shadow);
-}
-
-.blog-post-content .image-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* For full-width images with constrained height */
-.blog-post-content .image-fullwidth {
-  width: 100vw;
-  max-width: 100%;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  height: auto;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .blog-post-featured-image {
-    max-height: 300px;
-  }
-  
-  .blog-post-content .image-fullwidth {
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .blog-post-featured-image {
-    max-height: 250px;
-  }
-  
-  .blog-post-content .image-fullwidth {
-    max-height: 200px;
-  }
-}
 /* Animation Delays for Staggered Effect */
 .blog-post:nth-child(1) { transition-delay: 0.1s; }
 .blog-post:nth-child(2) { transition-delay: 0.2s; }
