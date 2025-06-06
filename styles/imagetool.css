@@ -372,7 +372,23 @@ button {
   }
   
   .upload-box {
-    padding: 2rem 1rem;
+    padding: 2.5rem;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+  }
+  
+  .upload-box h3 {
+    font-size: 1.3rem;
+  }
+  
+  .upload-box p {
+    font-size: 1rem;
+  }
+  
+  .supported-formats {
+    font-size: 0.9rem;
   }
   
   .preview-container {
