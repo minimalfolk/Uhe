@@ -1,5 +1,5 @@
 {
-  "rewrites": 
+  "rewrites": [
     { "source": "/increase-image-size", "destination": "/increase-image-size.html" },
     { "source": "/change-image-dimensions", "destination": "/change-image-dimensions.html" },
     { "source": "/convert-images", "destination": "/convert-images.html" },
