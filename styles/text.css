@@ -257,92 +257,48 @@ a:hover {
   color: var(--gray-color);
 }
 
-/* FAQ Section */
-.faq-extended {
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 2.5rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.faq-item {
-  background-color: var(--light-color);
-  border-radius: var(--border-radius);
-  padding: 1.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.faq-item h3 {
-  font-size: var(--font-lg);
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.faq-item p {
-  font-size: var(--font-sm);
-  color: var(--gray-color);
-}
-
-.faq-benefits {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-.faq-benefits li {
-  margin-bottom: 0.5rem;
-  font-size: var(--font-sm);
-  display: flex;
-  align-items: flex-start;
-}
-
-.faq-benefits i {
-  color: var(--success-color);
-  margin-right: 0.5rem;
-  font-size: var(--font-sm);
-  margin-top: 0.15rem;
-}
-
-.seo-questions {
+ /* FAQ Section - Merged */
+  .faq-extended {
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 2.5rem;
     max-width: 900px;
-    margin: 0 auto 3rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .seo-questions h2 {
+  .faq-extended h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary-color);
   }
 
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
   .faq-item {
-    margin-bottom: 1rem;
-    border: 1px solid var(--light-gray);
+    background-color: var(--light-color);
     border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
     transition: var(--transition);
   }
 
   .faq-question {
     padding: 1.25rem;
-    background-color: var(--light-color);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
+    font-size: var(--font-lg);
+    color: var(--primary-color);
+    margin-bottom: 0;
   }
 
   .faq-question:hover {
@@ -365,8 +321,6 @@ a:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
-    font-size: var(--font-sm);
-    color: var(--gray-color);
   }
 
   .faq-answer.show {
@@ -374,6 +328,30 @@ a:hover {
     max-height: 500px;
   }
 
+  .faq-answer p {
+    font-size: var(--font-sm);
+    color: var(--gray-color);
+    margin-bottom: 1rem;
+  }
+
+  .faq-benefits {
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .faq-benefits li {
+    margin-bottom: 0.5rem;
+    font-size: var(--font-sm);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .faq-benefits i {
+    color: var(--success-color);
+    margin-right: 0.5rem;
+    font-size: var(--font-sm);
+    margin-top: 0.15rem;
+  }
 /* Internal Links Section */
 .internal-links {
   background-color: white;
