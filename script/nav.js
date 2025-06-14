@@ -33,3 +33,21 @@ document.addEventListener('click', (e) => {
 
 // Set current year in footer
 document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// To Faq Questions
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle active class on question
+        question.classList.toggle('active');
+        
+        // Get the answer element
+        const answer = question.nextElementSibling;
+        
+        // Toggle show class on answer
+        answer.classList.toggle('show');
+      });
+    });
+  });
