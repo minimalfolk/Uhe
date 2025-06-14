@@ -1,6 +1,17 @@
 {
-  "rewrites": [
+  "rewrites": 
+    { "source": "/increase-image-size", "destination": "/increase-image-size.html" },
+    { "source": "/change-image-dimensions", "destination": "/change-image-dimensions.html" },
+    { "source": "/convert-images", "destination": "/convert-images.html" },
+    { "source": "/reduce-image-to-300kb", "destination": "/reduce-image-to-300kb.html" },
+    { "source": "/reduce-image-to-250kb", "destination": "/reduce-image-to-250kb.html" },
+    { "source": "/reduce-image-to-200kb", "destination": "/reduce-image-to-200kb.html" },
+    { "source": "/reduce-image-to-150kb", "destination": "/reduce-image-to-150kb.html" },
+    { "source": "/reduce-image-to-100kb", "destination": "/reduce-image-to-100kb.html" },
+    { "source": "/reduce-image-to-50kb", "destination": "/reduce-image-to-50kb.html" },
     { "source": "/reduce-image-to-20kb", "destination": "/reduce-image-to-20kb.html" },
+    { "source": "/reduce-image-to-10kb", "destination": "/reduce-image-to-10kb.html" },
+    { "source": "/reduce-image-to-5kb", "destination": "/reduce-image-to-5kb.html" },
     { "source": "/sitemap", "destination": "/sitemap.xml" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/contact", "destination": "/contact.html" },
