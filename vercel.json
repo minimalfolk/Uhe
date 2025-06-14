@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/reduce-image-to-20kb", "destination": "/reduce-image-to-20kb.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/sitemap", "destination": "/sitemap.xml" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
