@@ -9,6 +9,14 @@
 <meta name="language" content="en-IN" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+<!-- Preload and Preconnect -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" as="script">
+
 <!-- SEO Essentials -->
 <title>Reduce Image Size to 300KB Online - Free Image Compressor</title>
 <meta name="description" content="Compress your images to exactly 300KB without losing quality. Free online tool to reduce JPG, PNG, WebP images to 300KB for websites, forms, and social media." />
@@ -36,18 +44,43 @@
 <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Fallback for Preloaded Resources -->
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</noscript>
 
-<!-- Stylesheets -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" />
-<link rel="stylesheet" href="styles/navigation.css" />
-<link rel="stylesheet" href="styles/footer.css" />
-<link rel="stylesheet" href="styles/imagetool.css" />
-<link rel="stylesheet" href="styles/text.css" />
+<!-- Critical CSS (Inlined) -->
+<style>
+  /* Minimal critical CSS for above-the-fold content */
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+  }
+  #uploadBox {
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 
+<!-- Non-critical CSS -->
+<link rel="stylesheet" href="styles/navigation.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="styles/footer.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="styles/imagetool.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="styles/text.css" media="print" onload="this.media='all'">
+
+<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -62,7 +95,6 @@
 }
 </script>
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,7 +139,6 @@
 }
 </script>
 
-<!-- Breadcrumb Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,7 +161,7 @@
 </script>
   
 <script type="application/ld+json">
-  {
+{
   "section": "Frequently Asked Questions",
   "faqs": [
     {
@@ -171,7 +202,6 @@
   ]
 }
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1593298052484860" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -199,7 +229,7 @@
           <i class="fas fa-cloud-upload-alt"></i>
           <h3>Drop your images here</h3>
           <p>or <span>Select Images</span></p>
-          <input type="file" id="imageInput" accept="image/*" multiple>
+          <input type="file" id="imageInput" accept="image/*" multiple loading="lazy">
         </div>
         <div class="supported-formats">
           <p>Supports: JPG, PNG, WebP | Max 50MB</p>
@@ -220,12 +250,7 @@
         <p id="loadingText">Processing images...</p>
       </div>
 
-      <!-- Ads Container -->
-      <div class="ads-container">
-        <!-- Ad space placeholder, e.g., Google AdSense -->
-      </div>
-
-      <!-- Preview Container (Updated Structure) -->
+      <!-- Preview Container -->
       <div id="previewContainer"></div>
     </section>
     
@@ -402,8 +427,12 @@
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
 
+  <!-- Deferred Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
   <script src="script/main.js" defer></script>
   <script src="script/nav.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <!-- Load Google Ads asynchronously -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1593298052484860" crossorigin="anonymous"></script>
 </body>
 </html>
