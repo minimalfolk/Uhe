@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/increase-image-size", "destination": "/increase-image-size.html" },
     { "source": "/change-image-dimensions", "destination": "/change-image-dimensions.html" },
-    { "source": "/convert-images", "destination": "/convert-images.html" },
+    { "source": "/convert-image", "destination": "/convert-image.html" },
+    { "source": "/reduce-image-to-350kb", "destination": "/reduce-image-to-350kb.html" },
     { "source": "/reduce-image-to-300kb", "destination": "/reduce-image-to-300kb.html" },
     { "source": "/reduce-image-to-250kb", "destination": "/reduce-image-to-250kb.html" },
     { "source": "/reduce-image-to-200kb", "destination": "/reduce-image-to-200kb.html" },
