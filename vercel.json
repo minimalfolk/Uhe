@@ -6,7 +6,7 @@
     { "source": "/reduce-image-to-350kb", "destination": "/reduce-image-to-350kb.html" },
     { "source": "/reduce-image-to-300kb", "destination": "/reduce-image-to-300kb.html" },
     { "source": "/reduce-image-to-250kb", "destination": "/reduce-image-to-250kb.html" },
-    { "source": "/reduce-image-to-200kb", "destination": "/reduce-image-to-200kb.html" },
+    { "source": "/compress-image-size-to-200kb", "destination": "/compress-image-size-to-200kb.html" },
     { "source": "/reduce-image-to-150kb", "destination": "/reduce-image-to-150kb.html" },
     { "source": "/reduce-image-to-100kb", "destination": "/reduce-image-to-100kb.html" },
     { "source": "/reduce-image-to-50kb", "destination": "/reduce-image-to-50kb.html" },
