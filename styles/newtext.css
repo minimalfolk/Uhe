@@ -1,97 +1,159 @@
-/* Feature Description Section */
+/* Feature Description */
 .featuredesc {
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 2.5rem;
-  max-width: 900px;
-  margin: 2rem auto;
-  color: var(--dark-color);
-}
-
-.featuredesc h1 {
-  font-size: var(--font-2xl);
-  color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.featuredesc h2 {
-  font-size: var(--font-xl);
-  color: var(--primary-color);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  max-width: 800px;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
 }
 
 .featuredesc p {
-  font-size: var(--font-base);
-  color: var(--dark-color);
-  margin-bottom: 1rem;
-  line-height: 1.7;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
-.featuredesc ul,
-.featuredesc ol {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: var(--font-base);
-  color: var(--dark-color);
-  line-height: 1.6;
+.featuredesc strong {
+  font-weight: 600;
 }
 
-.featuredesc li {
-  margin-bottom: 0.75rem;
-  list-style-type: disc;
+.featuredesc center {
+  margin: 1rem 0;
 }
 
-.featuredesc ol li {
-  list-style-type: decimal;
-}
-
-.featuredesc img {
-  margin: 2rem auto;
-  display: block;
-  border-radius: var(--border-radius);
+.Compressimage {
   max-width: 100%;
   height: auto;
-  box-shadow: var(--box-shadow);
+  border-radius: var(--radius);
 }
 
-/* Internal Links Section Fix */
+.featuredesc h2 {
+  color: var(--dark);
+  margin: 1.2rem 0 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.steps {
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.steps li {
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.featuredesc ul {
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.featuredesc ul li {
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.faq-item {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin: 1.2rem 0;
+}
+
+.faq-item h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  color: var(--dark);
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+/* Internal Links */
+.internal-links {
+  max-width: 800px;
+  margin: 1.5rem auto 0.5rem;
+  padding: 0 1rem;
+}
+
 .internal-links h2 {
   text-align: center;
-  font-size: var(--font-xl);
-  color: var(--primary-color);
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: var(--dark);
 }
 
 .internal-links ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.4rem;
   justify-content: center;
   list-style: none;
-  padding-left: 0;
 }
 
-.internal-links li {
-  background-color: var(--light-gray);
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-}
-
-.internal-links li a {
+.internal-links a {
   display: block;
-  padding: 0.75rem 1.25rem;
-  font-size: var(--font-sm);
+  padding: 0.5rem 0.8rem;
+  background: var(--light);
+  color: var(--dark);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
   font-weight: 500;
-  color: var(--dark-color);
+  text-align: center;
+  transition: var(--transition);
+  line-height: 1.2;
+  border: 1px solid var(--light-gray);
 }
 
-.internal-links li:hover {
-  background-color: var(--primary-color);
+.internal-links a:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
-.internal-links li:hover a {
-  color: white;
-}}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .featuredesc, .internal-links {
+    padding: 0 0.75rem;
+  }
+  
+  .featuredesc h2 {
+    font-size: 1rem;
+    margin: 1rem 0 0.6rem;
+  }
+  
+  .internal-links ul {
+    gap: 0.3rem;
+  }
+  
+  .internal-links a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .faq-item {
+    padding: 0.8rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuredesc {
+    padding: 0 0.5rem;
+  }
+  
+  .internal-links ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+  }
+  
+  .internal-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.4rem 0.3rem;
+    font-size: 0.65rem;
+  }
+}
