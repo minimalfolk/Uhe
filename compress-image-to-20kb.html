@@ -251,8 +251,19 @@
 
 <script>
   document.getElementById("currentYear").textContent = new Date().getFullYear();
-</script>
+  document.getElementById("imageUpload").addEventListener("change", function () {
+    
+    // Delay to make sure preview is rendered
+    setTimeout(() => {
+        const preview = document.getElementById("previewSection");
+        preview.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 300);
 
+});
+</script>
   <script src="script/main.js" defer></script>
   <script src="script/nav.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
