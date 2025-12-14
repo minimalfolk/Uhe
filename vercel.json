@@ -3,6 +3,7 @@
     { "source": "/increase-image-size", "destination": "/increase-image-size.html" },
     { "source": "/change-dimensions", "destination": "/change-dimensions.html" },
     { "source": "/convert-image", "destination": "/convert-image.html" },
+    { "source": "/resize-image-for-rtps-2", "destination": "/resize-image-for-rtps-2.html" }, 
     { "source": "/compress-image-to-350kb", "destination": "/compress-image-to-350kb.html" },
     { "source": "/compress-image-to-300kb", "destination": "/compress-image-to-300kb.html" },
     { "source": "/compress-image-to-250kb", "destination": "/compress-image-to-250kb.html" },
