@@ -1,282 +1,1479 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="en">
+<html b:css='false' b:responsive='true' b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-  <!-- Charset & Viewport -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Reducepic">
-  <meta name="language" content="en-IN">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset='utf-8'/>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+  <title><data:view.title.escaped/></title>
+  
+  <b:include data='blog' name='all-head-content'/>
 
-  <!-- SEO Essentials -->
-  <title>Resize Image for RTPS 2 Online</title>
-  <meta name="description" content="Resize images for RTPS 2 (Bihar e-Services) use our free online tool reducepic resizer to get exact size of 3.5cm x 4.5cm for signature, upload photo for rtps.">
-  <meta name="keywords" content="resize image for rtps 2 online, rtps 2 photo, rtps photo resizer">
-  <link rel="canonical" href="https://reducepic.in/resize-image-for-rtps-2">
-  <meta property="og:title" content="Resize Image for RTPS 2 Online">
-  <meta property="og:description" content="resize image for rtps to get exact size of 3.5cm x 4.5cm online.">
-  <meta property="og:image" content="https://reducepic.in/images/compress-image-size.jpg">
-  <meta property="og:url" content="https://reducepic.in">
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- FontAwesome Icons -->
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
 
-  <!-- Verification & Locale -->
-  <meta name="google-site-verification" content="tFSw_3krhCp7xBursD0kPYXo-twhTfaW73wMX2YPMKQ">
-  <meta name="geo.region" content="IN">
-
-  <!-- Favicon & Styles -->
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="styles/navigation.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/imagetool.css">
-  <link rel="stylesheet" href="styles/text.css">
-
-  <!-- Structured Data: Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://reducepic.in",
-    "name": "ReducePic",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://reducepic.in/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+  <b:skin><![CDATA[
+  /* ==========================================================
+     REDUCEPIC ROCK-SOLID CSS (NO BLANK PAGES)
+     ========================================================== */
+  :root {
+    --rp-blue: #4361ee;
+    --rp-btn-blue: #7289da;
+    --rp-text: #222222;
+    --rp-muted: #6c757d;
+    --rp-border: #e9ecef;
+    --rp-radius: 8px;
+    --rp-success: #10b981;
+    --rp-error: #ef4444;
   }
-  </script>
 
-  <!-- Structured Data: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How can I compress multiple images at once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can easily compress multiple images by uploading them together in our bulk image compressor. It automatically reduces the file size of all your JPG, PNG, WebP or any format images without losing quality."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I reduce image size to 20KB or 50KB online?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Just upload your images, select your target size (for example, 20KB or 50KB), and click Compress. The tool will adjust quality and compression to meet your chosen size perfectly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which is the best tool to compress images in bulk without losing quality?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ReducePic is one of the fastest and most accurate bulk image compressors online. It uses smart lossless compression to keep your image clarity while reducing file size drastically."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I compress images for website or online upload?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Compressed images are ideal for websites, e-commerce, and blogs. They improve page loading speed, SEO, and user experience by reducing bandwidth usage."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is it safe to compress images online?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our compression happens securely in your browser. No images are stored or shared on any server, ensuring 100% privacy and safety."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does image compression affect quality?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not with advanced compression tools like ReducePic. Your images stay sharp and clear, even after significant file size reduction."
-        }
-      }
-    ]
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #ffffff;
+    color: var(--rp-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
-  </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1593298052484860" crossorigin="anonymous"></script>
+  /* Header Navigation */
+  .rp-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--rp-border);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rp-logo a {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--rp-blue);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .rp-menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #111;
+    padding: 0 4px;
+    line-height: 1;
+  }
+
+  /* Dropdown Menu */
+  .rp-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--rp-border);
+    border-radius: var(--rp-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    min-width: 240px;
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    z-index: 1000;
+  }
+
+  .rp-dropdown.show { display: flex; }
+
+  .rp-dropdown a {
+    padding: 0.65rem 1.25rem;
+    color: var(--rp-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+
+  .rp-dropdown a:hover { background: #f8f9fa; color: var(--rp-blue); }
+
+  /* Main Container */
+  .main-wrapper {
+    max-width: 800px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1rem;
+    min-height: 60vh;
+  }
+
+  /* ==========================================================
+     PAGE VISIBILITY CONTROLS (CSS-BASED TO PREVENT BREAKING)
+     ========================================================== */
+  /* On Homepage: Show Hub, Hide standard blog body */
+  .home-hub-section { display: block; }
+  .page-inner-content { display: none; }
+
+  /* On Pages & Posts: Hide Hub, Show Page body */
+  body.item-view .home-hub-section,
+  body.static_page .home-hub-section {
+    display: none !important;
+  }
+
+  body.item-view .page-inner-content,
+  body.static_page .page-inner-content {
+    display: block !important;
+  }
+
+  /* ==========================================================
+     HOMEPAGE GRID CARDS
+     ========================================================== */
+  .hub-header { text-align: center; margin-bottom: 2rem; }
+  .hub-header h1 { font-size: 1.85rem; font-weight: 800; color: #111827; margin-bottom: 0.4rem; }
+  .hub-header p { font-size: 0.95rem; color: var(--rp-muted); }
+
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tool-hub-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .tool-hub-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--rp-blue);
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.08);
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #f0f4ff;
+    color: var(--rp-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-hub-card:hover .card-icon { background: var(--rp-blue); color: #ffffff; }
+  .card-title { font-size: 1.1rem; font-weight: 700; color: #111827; margin-bottom: 0.4rem; }
+  .card-desc { font-size: 0.85rem; color: var(--rp-muted); line-height: 1.4; margin-bottom: 1.25rem; flex-grow: 1; }
+  .card-action { font-size: 0.88rem; font-weight: 600; color: var(--rp-blue); display: flex; align-items: center; gap: 0.35rem; }
+  .card-badge { font-size: 0.72rem; font-weight: 700; background: #ecfdf5; color: #059669; padding: 2px 8px; border-radius: 999px; margin-left: auto; }
+
+  /* ==========================================================
+     TOOL CARD & INNER PAGE STYLES (UNIVERSAL CLASS SUPPORT)
+     ========================================================== */
+  #rp-tool-wrapper, .tool-card, .compress-card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: var(--rp-radius);
+    padding: 0.5rem 0;
+  }
+
+  .tool-title, .compress-card h1, #rp-tool-wrapper h1 {
+    text-align: center;
+    color: var(--rp-blue);
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .upload-container { padding: 0.5rem 0; }
+
+  .upload-box {
+    border: 2px dashed var(--rp-blue);
+    border-radius: 12px;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    background: #ffffff;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    transition: background 0.2s;
+  }
+
+  .upload-box:hover, .upload-box.dragover { background: #f0f4ff; }
+  .upload-box i { font-size: 2.5rem; color: var(--rp-blue); margin-bottom: 0.75rem; display: block; }
+  .upload-box h3 { font-size: 1.2rem; font-weight: 700; color: #111827; margin-bottom: 0.4rem; }
+  .upload-box p { font-size: 0.95rem; color: var(--rp-muted); }
+  .upload-box p span { color: var(--rp-blue); font-weight: 600; }
+  .upload-box input[type="file"] { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+
+  .supported-formats, .sub-note { text-align: center; font-size: 0.88rem; color: var(--rp-muted); margin: 0.5rem 0 1.5rem; }
+  .supported-formats i { margin-right: 4px; }
+  .divider { border-top: 1px solid #f1f3f5; margin: 1.5rem 0; }
+
+  .controls-row, .compression-options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    flex-wrap: wrap;
+  }
+
+  .option-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .controls-row label, .option-row label { font-size: 0.95rem; font-weight: 600; color: #222; }
+
+  .controls-row input, .option-row input, #targetSize {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 140px;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .compress-action-btn, #compressBtn {
+    padding: 0.55rem 1.4rem;
+    background-color: #849bf0;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: background 0.2s;
+  }
+
+  .compress-action-btn:hover:not(:disabled), #compressBtn:hover:not(:disabled) { background-color: var(--rp-blue); }
+  .compress-action-btn:disabled, #compressBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  #loadingIndicator { text-align: center; padding: 1rem; color: var(--rp-blue); font-weight: 600; }
+  #previewContainer { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
+
+  .preview-container {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: var(--rp-radius);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preview-container img { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; }
+  .preview-details { flex: 1; min-width: 0; }
+  .preview-filename { font-size: 0.9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .preview-stats { font-size: 0.8rem; color: var(--rp-muted); display: flex; gap: 0.6rem; }
+  .preview-actions { display: flex; gap: 0.5rem; }
+  .download-btn { background: var(--rp-success); color: #fff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+  .remove-btn { background: var(--rp-error); color: #fff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+
+  .article-section, .featuredesc { margin-top: 2rem; }
+  .article-section p, .featuredesc p { font-size: 0.95rem; margin-bottom: 1rem; color: #2b2b2b; line-height: 1.6; }
+  .article-section h2, .featuredesc h2 { font-size: 1.35rem; font-weight: 700; margin: 1.75rem 0 0.75rem; color: #111827; }
+  .article-section ol, .article-section ul, .featuredesc ol, .featuredesc ul { padding-left: 1.25rem; margin-bottom: 1.25rem; }
+  .article-section li, .featuredesc li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+  .faq-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+  .faq-item h3 { font-size: 1rem; color: var(--rp-blue); margin-bottom: 0.35rem; }
+  .faq-item p { margin: 0; font-size: 0.9rem; }
+
+  /* Footer */
+  .rp-footer {
+    border-top: 1px solid #f1f3f5;
+    padding: 2.5rem 1rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .footer-brand { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .footer-tagline { font-size: 0.9rem; color: var(--rp-muted); margin-bottom: 1.5rem; max-width: 520px; }
+  .footer-heading { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .footer-links { list-style: none; padding: 0; margin-bottom: 2rem; }
+  .footer-links li { margin-bottom: 0.4rem; }
+  .footer-links a { color: var(--rp-muted); text-decoration: none; font-size: 0.92rem; }
+  .footer-links a:hover { color: var(--rp-blue); }
+  .footer-copyright { text-align: center; color: var(--rp-muted); font-size: 0.85rem; padding-top: 1rem; }
+
+  @media (max-width: 600px) {
+    .tool-title, .compress-card h1 { font-size: 1.5rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .preview-container { flex-direction: column; align-items: flex-start; }
+    .preview-actions { width: 100%; }
+    .download-btn, .remove-btn { flex: 1; text-align: center; }
+  }
+  ]]></b:skin>
 </head>
 
-<body>
-  <header class="sticky-header">
-    <div class="logo" onclick="window.location.href='/'">ReducePic</div>
-    <button class="hamburger-menu" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="/increase-image-size">Increase Image Size</a>
-      <a href="/change-dimensions">Change Image Dimensions</a>
-      <a href="/compress-image-to-20kb">Compress to 20KB</a>
-      <a href="/compress-image-to-50kb">Compress to 50KB</a>
-      <a href="/compress-image-to-100kb">Compress to 100KB</a>
-      <a href="/compress-image-to-200kb">Compress to 200KB</a>
-    </nav>
+<body expr:class='data:blog.pageType'>
+  <!-- Header -->
+  <header class='rp-header'>
+    <div class='rp-logo'>
+      <a expr:href='data:blog.homepageUrl'>ReducePic</a>
+    </div>
+    <button aria-label='Toggle menu' class='rp-menu-btn' id='menuBtn'>&#9776;</button>
+    <div class='rp-dropdown' id='menuDropdown'>
+      <a href='/p/increase-image-size.html'>Increase Image Size</a>
+      <a href='/p/change-dimensions.html'>Change Image Dimensions</a>
+      <a href='/p/compress-to-20kb.html'>Compress to 20KB</a>
+      <a href='/p/compress-to-50kb.html'>Compress to 50KB</a>
+      <a href='/p/compress-to-100kb.html'>Compress to 100KB</a>
+      <a href='/p/compress-to-200kb.html'>Compress to 200KB</a>
+    </div>
   </header>
 
-  <main>
-    <section class="compress-image">
-      <h1>Resize Image for RTPS 2</h1>
-      <div class="upload-container">
-        <div class="upload-box" id="uploadBox">
-          <h3>Drop your images here</h3>
-          <p>or <span>Select Images</span></p>
-          <input type="file" id="imageInput" accept="image/*" multiple>
-        </div>
-        <div class="supported-formats">
-          <p>No sign-up, Free Forever</p>
-        </div>
+  <!-- Main Container -->
+  <main class='main-wrapper'>
+
+    <!-- 1. HOMEPAGE TOOL HUB -->
+    <div class='home-hub-section'>
+      <div class='hub-header'>
+        <h1>Online Image Tools</h1>
+        <p>Fast, client-side, and free image optimization utilities.</p>
       </div>
 
-      <!-- Compression Options -->
-      <div class="compression-options">
-        <div class="option-row">
-          <label for="targetSize">Size (KB):</label>
-          <input type="number" id="targetSize" min="10" max="5000" step="100" placeholder="20">
-          <button id="compressBtn" disabled aria-label="Compress images">Resize</button>
-        </div>
-      </div>
-
-      <!-- Loading Indicator -->
-      <div id="loadingIndicator" hidden>
-        <p id="loadingText">Processing images...</p>
-      </div>
-      <div id="previewContainer"></div>
-      <!-- Ads -->
-      <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-1593298052484860"
-        data-ad-slot="4847906456"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </section>
-
-    <section class="featuredesc">
-        <p><strong>ReducePic's RTPS 2 Photo Resizer</strong> helps you resize and compress images exactly as required for RTPS website applications in Bihar. You can adjust photo size, dimensions and file size (KB) online without losing quality. No registration, no upload to server – works instantly in your browser.</p>
-        <div style="text-align:center;">
-        <img alt="Compress images by ReducePic without losing quality" width="780" height="457" class="Compressimage" src="images/compress-image-size.jpg">
-      </div>
-
-      <h2>How to Resize Image for RTPS</H2>     
-      <ol classs"steps">      
-       <li><strong>Upload RTPS 2 Photo:</strong> Select your JPG or JPEG passport size photo.</li>
-       <li><strong>Enter Required Size:</strong> Set target file size as per RTPS portal (example: 20KB or 50KB).</li>
-       <li><strong>Resize & Download:</strong> Click resize and download your RTPS 2 ready photo instantly.</li>
-      </ol>
-      <h2>RTPS 2 Photo Requirement (Bihar)</h2>
-      <ul>
-        <li>Photo Size: 3.5 cm × 4.5 cm</li>
-        <li>Background: Light / White</li>
-        <li>File Format: JPG or JPEG</li>
-        <li>File Size: As per RTPS portal limit</li>
-        <li>Recent passport size photo required</li>
-      </ul>
-
-      <h2>Main features of ReducePic</h2>
-      <ul>
-        <li><strong>Browser-side process:</strong> Your images are compressed in your browser, we provide a secure process to respect your privacy. Feel free to compress any images without worries.</li>
-        <li><strong>Time saving and Efficient:</strong> Upload multiple images at once to save your valuable time and its effect your uploading time too.</li>
-        <li><strong>User-Friendly Interface:</strong> We designed our tool based on research to save you time, our interface provides the best experience for hundreds of satisfied users.</li>
-        <li><strong>Support multiple Formats:</strong> Our Reducepic tool support multiple format like JPG, PNG, WebP, GIF, HEIC and more to handle diverse file format.</li>
-        <li><strong>Free Forever:</strong> Since launched we compress thousands of image online for free, we will maintain this free service forever.</li>
-      </ul>
-
-      <h2>Why choose ReducePic?</h2>
-      <p>At <strong>ReducePic</strong>, we don’t just compress images — we protect your privacy and your precious time. Your every image is processed instantly in your browser, without being uploaded or stored to any server. 
-         Whether you’re a student, designer, writer or business owner - even if you run a WordPress news website like 
-        <a href="https://nextbazzar.in">"NextBazzar"</a> - ReducePic is made for you. Fast, secure and lossless image compressor.
-       </p>
-       <p>
-         In a world full of complex tools, ReducePic keeps things simple. We believe compression should be quick, safe and worry-free because your data and creativity are precious. 
-         That's why try ReducePic once, and you’ll see why thousands of users trusted it for seamless, lossless image compression.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-       <h3>How can I compress multiple images at once?</h3>
-       <p>You can easily compress multiple images by uploading them together in our bulk image compressor. It automatically reduces the file size of all your JPG, PNG, WebP or any formet images without losing its quality.</p>
-     </div>
-     <div class="faq-item">
-      <h3>How do I reduce image size to 20KB or 50KB online?</h3>
-      <p>Just upload your images, select your target size (for example, 20KB or 50KB), and click <strong>Compress</strong>. The tool will adjust quality and compression to meet your chosen size perfectly.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Which is the best tool to compress images in bulk without losing quality?</h3>
-     <p><strong>ReducePic</strong> is one of the fastest and most accurate bulk image compressors online. It uses smart lossless compression to keep your image clarity while reducing file size drastically.</p>
-   </div>
-   <div class="faq-item">
-    <h3>Can I compress images for website or online upload?</h3>
-    <p>Yes, Compressed images are ideal for websites, e-commerce and blogs. They improve page loading speed, SEO and user experience by reducing bandwidth usage.</p>
-   </div>
-   <div class="faq-item">
-    <h3>Is it safe to compress images online?</h3>
-    <p>Yes, Our compression happens securely in your browser. No images are stored or shared on any server, ensuring 100% privacy and safety.</p>
-   </div>
-   <div class="faq-item">
-    <h3>Does image compression affect quality?</h3>
-    <p>Not with advanced compression tools like <strong>ReducePic</strong>. Your images stay sharp and clear, even after significant file size reduction.</p>
-   </div>
-    </section>
-
-    <section class="internal-links">
-      <h2>Quick Links: Choose according to your needed size</h2>
-      <nav aria-label="Internal quick links">
-        <ul>
-          <li><a href="/compress-image-to-5kb">5 KB</a></li>
-          <li><a href="/compress-image-to-10kb">10 KB</a></li>
-          <li><a href="/compress-image-to-20kb">20 KB</a></li>
-          <li><a href="/compress-image-to-50kb">50 KB</a></li>
-          <li><a href="/compress-image-to-100kb">100 KB</a></li>
-          <li><a href="/compress-image-to-200kb">200 KB</a></li>
-          <li><a href="/compress-image-to-250kb">250 KB</a></li>
-          <li><a href="/compress-image-to-300kb">300 KB</a></li>
-          <li><a href="/compress-image-to-350kb">350 KB</a></li>
-        </ul>
-      </nav>
-    </section  </main>
-
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col footer-about">
-          <div class="footer-logo">
-            <i class="fas fa-compress-alt" aria-hidden="true"></i>
-            <span>ReducePic</span>
+      <div class='tool-grid'>
+        <a class='tool-hub-card' href='/p/reduce-multiple-image.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-layer-group'/></div>
+            <div class='card-title'>Reduce Multiple Image</div>
+            <p class='card-desc'>Compress multiple JPG, PNG, and WebP images simultaneously to custom KB sizes.</p>
           </div>
-          <p>India’s fastest free image compressor. Secure, lossless and saves time for students, designers and website owners.</p>
-        </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/><span class='card-badge'>Popular</span></div>
+        </a>
 
-        <div class="footer-col">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="https://nextbazzar.in">NextBazzar</a></li>
-            <li><a href="./about">About Us</a></li>
-            <li><a href="./contact">Contact</a></li>
-            <li><a href="./privacy">Privacy Policy</a></li>
-            <li><a href="./terms">Terms & Conditions</a></li>
-          </ul>
-        </div>
+        <a class='tool-hub-card' href='/p/compress-to-20kb.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-signature'/></div>
+            <div class='card-title'>Compress to 20KB</div>
+            <p class='card-desc'>Reduce images &amp; digital signatures strictly below 20KB for online forms.</p>
+          </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/><span class='card-badge'>Exam Ready</span></div>
+        </a>
+
+        <a class='tool-hub-card' href='/p/compress-to-50kb.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-id-card'/></div>
+            <div class='card-title'>Compress to 50KB</div>
+            <p class='card-desc'>Perfect size for passport photos, admit cards, and job application uploads.</p>
+          </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/></div>
+        </a>
+
+        <a class='tool-hub-card' href='/p/compress-to-100kb.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-file-invoice'/></div>
+            <div class='card-title'>Compress to 100KB</div>
+            <p class='card-desc'>Optimize scanned marksheets, certificates, and ID cards under 100KB.</p>
+          </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/></div>
+        </a>
+
+        <a class='tool-hub-card' href='/p/compress-to-200kb.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-envelope-open-text'/></div>
+            <div class='card-title'>Compress to 200KB</div>
+            <p class='card-desc'>Reduce high-resolution photos for faster email attachments and web pages.</p>
+          </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/></div>
+        </a>
+
+        <a class='tool-hub-card' href='/p/increase-image-size.html'>
+          <div>
+            <div class='card-icon'><i class='fas fa-expand-arrows-alt'/></div>
+            <div class='card-title'>Increase Image Size</div>
+            <p class='card-desc'>Boost image KB file size to meet minimum requirement limits on official forms.</p>
+          </div>
+          <div class='card-action'>Open Tool <i class='fas fa-arrow-right'/></div>
+        </a>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; <span id="currentYear"></span> ReducePic - Made In India 🇮🇳</p>
+      <div class='divider'/>
+      <section class='article-section'>
+        <h2>Why Use ReducePic Suite?</h2>
+        <p><strong>ReducePic</strong> provides a complete suite of browser-based image utilities designed for speed, simplicity, and strict privacy. All image processing happens 100% locally on your device without uploading files to remote servers.</p>
+      </section>
+    </div>
+
+    <!-- 2. INNER PAGES AND POSTS -->
+    <div class='page-inner-content'>
+      <b:section id='main' showaddelement='no'>
+        <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
+          <b:widget-settings>
+            <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+            <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+            <b:widget-setting name='authorLabel'>By</b:widget-setting>
+            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+            <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='showAuthor'>false</b:widget-setting>
+            <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='reactionsLabel'/>
+            <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+            <b:widget-setting name='showLabels'>true</b:widget-setting>
+            <b:widget-setting name='showLocation'>true</b:widget-setting>
+            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+            <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+            <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+            <b:widget-setting name='showReactions'>false</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <b:loop values='data:posts' var='post'>
+              <article class='page-article'>
+                <data:post.body/>
+              </article>
+            </b:loop>
+          </b:includable>
+          <b:includable id='backlinkDeleteIcon' var='backlink'/>
+          <b:includable id='backlinks' var='post'/>
+          <b:includable id='comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <h4 id='comment-post-message'>
+        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <h4 id='comment-post-message'><data:postCommentMsg/></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+          <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
       </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+          <b:includable id='comment_count_picker' var='post'>
+  <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+    <data:post.commentLabelFull/>:
+  </a>
+</b:includable>
+          <b:includable id='comment_picker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threaded_comments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+          <b:includable id='comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+      <h4><data:post.commentLabelFull/>:</h4>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+              &#160;
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+              &#160;
+          </b:if>
+
+          <data:post.commentRangeText/>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            &#160;
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+            &#160;
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+          </b:if>
+        </span>
+      </b:if>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <dl expr:class='data:post.avatarIndentClass' id='comments-block'>
+          <b:loop values='data:post.comments' var='comment'>
+            <dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+              <b:if cond='data:comment.favicon'>
+                <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
+              </b:if>
+              <a expr:name='data:comment.anchorName'/>
+              <b:if cond='data:blog.enabledCommentProfileImages'>
+                <data:comment.authorAvatarImage/>
+              </b:if>
+              <b:if cond='data:comment.authorUrl'>
+                <a expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+              <b:else/>
+                <data:comment.author/>
+              </b:if>
+              <data:commentPostedByMsg/>
+            </dt>
+            <dd class='comment-body' expr:id='data:widget.instanceId + data:comment.cmtBodyIdPostfix'>
+              <b:if cond='data:comment.isDeleted'>
+                <span class='deleted-comment'><data:comment.body/></span>
+              <b:else/>
+                <p>
+                  <data:comment.body/>
+                </p>
+              </b:if>
+            </dd>
+            <dd class='comment-footer'>
+              <span class='comment-timestamp'>
+                <a expr:href='data:comment.url' title='comment permalink'>
+                  <data:comment.timestamp/>
+                </a>
+                <b:include data='comment' name='commentDeleteIcon'/>
+              </span>
+            </dd>
+          </b:loop>
+        </dl>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <span class='paging-control-container'>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+            <data:post.oldestLinkText/>
+          </a>
+          <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+            <data:post.olderLinkText/>
+          </a>
+          &#160;
+          <data:post.commentRangeText/>
+          &#160;
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+            <data:post.newerLinkText/>
+          </a>
+          <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+            <data:post.newestLinkText/>
+          </a>
+        </span>
+      </b:if>
+
+      <p class='comment-footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='comment-form'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:elseif cond='data:post.allowComments'/>
+          <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+        </b:if>
+      </p>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+  </div>
+</b:includable>
+          <b:includable id='feedLinks'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+          <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:feedLinksMsg/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+          <b:includable id='iframe_comments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+          <b:includable id='mobile-index-post' var='post'>
+  <div class='mobile-date-outer date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <div class='date-header'>
+        <span><data:post.dateHeader/></span>
+      </div>
+    </b:if>
+
+    <div class='mobile-post-outer'>
+      <a expr:href='data:post.url'>
+        <h3 class='mobile-index-title entry-title' itemprop='name'>
+          <data:post.title/>
+        </h3>
+
+        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
+
+        <div class='mobile-index-contents'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <div class='mobile-index-thumbnail'>
+              <div class='Image'>
+                <img expr:src='data:post.thumbnailUrl'/>
+              </div>
+            </div>
+          </b:if>
+
+          <div class='post-body'>
+            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+          </div>
+        </div>
+
+        <div style='clear: both;'/>
+      </a>
+
+      <div class='mobile-index-comment'>
+        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+          <b:includable id='mobile-main' var='top'>
+    <!-- posts -->
+    <div class='blog-posts hfeed'>
+
+      <b:include data='top' name='status-message'/>
+
+      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-index-post'/>
+        </b:loop>
+      <b:else/>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-post'/>
+        </b:loop>
+      </b:if>
+    </div>
+
+   <b:include name='mobile-nextprev'/>
+</b:includable>
+          <b:includable id='mobile-nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      </div>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      </div>
+    </b:if>
+
+    <div class='mobile-link-button' id='blog-pager-home-link'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    </div>
+
+    <div class='mobile-desktop-link'>
+      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+    </div>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+          <b:includable id='mobile-post' var='post'>
+  <div class='date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+    </b:if>
+    <div class='date-posts'>
+      <div class='post-outer'>
+
+        <div class='post hentry uncustomized-post-template' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <meta expr:content='data:post.thumbnailUrl' itemprop='image_url'/>
+          </b:if>
+          <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+          <meta expr:content='data:post.id' itemprop='postId'/>
+
+          <a expr:name='data:post.id'/>
+          <b:if cond='data:post.title'>
+            <h3 class='post-title entry-title' itemprop='name'>
+              <b:if cond='data:post.link'>
+                <a expr:href='data:post.link'><data:post.title/></a>
+              <b:elseif cond='data:post.url and data:blog.url != data:post.url'/>
+                <a expr:href='data:post.url'><data:post.title/></a>
+              <b:else/>
+                <data:post.title/>
+              </b:if>
+            </h3>
+          </b:if>
+
+          <div class='post-header'>
+            <div class='post-header-line-1'/>
+          </div>
+
+          <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
+            <data:post.body/>
+            <div style='clear: both;'/> <!-- clear for photos floats -->
+          </div>
+
+          <div class='post-footer'>
+            <div class='post-footer-line post-footer-line-1'>
+              <span class='post-author vcard'>
+                <b:if cond='data:top.showAuthor'>
+                  <b:if cond='data:post.authorProfileUrl'>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                        <span itemprop='name'><data:post.author/></span>
+                      </a>
+                    </span>
+                  <b:else/>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <span itemprop='name'><data:post.author/></span>
+                    </span>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-timestamp'>
+                <b:if cond='data:top.showTimestamp'>
+                  <data:top.timestampLabel/>
+                  <b:if cond='data:post.url'>
+                    <meta expr:content='data:post.url.canonical' itemprop='url'/>
+                    <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-comment-link'>
+                <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
+              </span>
+            </div>
+
+            <div class='post-footer-line post-footer-line-2'>
+              <b:if cond='data:top.showMobileShare'>
+                <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
+                  <a href='javascript:void(0);'><data:shareMsg/></a>
+                </div>
+              </b:if>
+            </div>
+
+          </div>
+        </div>
+
+        <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+          <b:includable id='nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <span id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      </span>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <span id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      </span>
+    </b:if>
+
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+
+    <b:if cond='data:mobileLinkUrl'>
+      <div class='blog-mobile-link'>
+        <a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+      </div>
+    </b:if>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+          <b:includable id='post' var='post'>
+  <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+    <b:if cond='data:post.firstImageUrl'>
+      <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
+    </b:if>
+    <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+    <meta expr:content='data:post.id' itemprop='postId'/>
+
+    <a expr:name='data:post.id'/>
+    <b:if cond='data:post.title'>
+      <h3 class='post-title entry-title' itemprop='name'>
+      <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+        <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+      </h3>
+    </b:if>
+
+    <div class='post-header'>
+    <div class='post-header-line-1'/>
+    </div>
+
+    <!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
+    <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+      <data:post.body/>
+      <div style='clear: both;'/> <!-- clear for photos floats -->
+    </div>
+
+    <b:if cond='data:post.hasJumpLink'>
+      <div class='jump-link'>
+        <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+      </div>
+    </b:if>
+
+    <div class='post-footer'>
+    <div class='post-footer-line post-footer-line-1'>
+      <span class='post-author vcard'>
+        <b:if cond='data:top.showAuthor'>
+          <data:top.authorLabel/>
+            <b:if cond='data:post.authorProfileUrl'>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                <a class='g-profile' expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                  <span itemprop='name'><data:post.author/></span>
+                </a>
+              </span>
+            <b:else/>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <span itemprop='name'><data:post.author/></span>
+              </span>
+            </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-timestamp'>
+        <b:if cond='data:top.showTimestamp'>
+          <data:top.timestampLabel/>
+          <b:if cond='data:post.url'>
+            <meta expr:content='data:post.url.canonical' itemprop='url'/>
+            <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+          </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-comment-link'>
+        <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
+      </span>
+
+      <span class='post-icons'>
+        <!-- email post links -->
+        <b:if cond='data:post.emailPostUrl'>
+          <span class='item-action'>
+          <a expr:href='data:post.emailPostUrl' expr:title='data:top.emailPostMsg'>
+            <img alt='' class='icon-action' height='13' src='https://resources.blogblog.com/img/icon18_email.gif' width='18'/>
+          </a>
+          </span>
+        </b:if>
+
+        <!-- quickedit pencil -->
+        <b:include data='post' name='postQuickEdit'/>
+      </span>
+
+      <!-- share buttons -->
+      <div class='post-share-buttons goog-inline-block'>
+        <b:include cond='data:post.sharePostUrl' data='post' name='shareButtons'/>
+      </div>
+
+      </div>
+
+      <div class='post-footer-line post-footer-line-2'>
+      <span class='post-labels'>
+        <b:if cond='data:top.showPostLabels and data:post.labels'>
+          <data:postLabelsLabel/>
+          <b:loop values='data:post.labels' var='label'>
+            <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+          </b:loop>
+        </b:if>
+      </span>
+      </div>
+
+      <div class='post-footer-line post-footer-line-3'>
+      <span class='post-location'>
+        <b:if cond='data:top.showLocation and data:post.location'>
+          <data:postLocationLabel/>
+          <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+        </b:if>
+      </span>
+      </div>
+      <b:if cond='data:post.authorAboutMe'>
+        <div class='author-profile' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+          <b:if cond='data:post.authorPhoto.url'>
+            <img expr:src='data:post.authorPhoto.url' itemprop='image' width='50px'/>
+          </b:if>
+          <div>
+            <a class='g-profile' expr:href='data:post.authorProfileUrl' itemprop='url' rel='author' title='author profile'>
+              <span itemprop='name'><data:post.author/></span>
+            </a>
+          </div>
+          <span itemprop='description'><data:post.authorAboutMe/></span>
+        </div>
+      </b:if>
+    </div>
+  </div>
+</b:includable>
+          <b:includable id='postQuickEdit' var='post'>
+  <b:if cond='data:post.editUrl'>
+    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+      <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+        <img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+      </a>
+    </span>
+  </b:if>
+</b:includable>
+          <b:includable id='shareButtons' var='post'>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
+</b:includable>
+          <b:includable id='status-message'>
+  <b:if cond='data:navMessage'>
+  <div class='status-msg-wrap'>
+    <div class='status-msg-body'>
+      <data:navMessage/>
+    </div>
+    <div class='status-msg-border'>
+      <div class='status-msg-bg'>
+        <div class='status-msg-hidden'><data:navMessage/></div>
+      </div>
+    </div>
+  </div>
+  <div style='clear: both;'/>
+  </b:if>
+</b:includable>
+          <b:includable id='threaded-comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+          <b:includable id='threaded_comment_js' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+
+  <script type='text/javascript'>
+    (function() {
+      var items = <data:post.commentJso/>;
+      var msgs = <data:post.commentMsgs/>;
+      var config = <data:post.commentConfig/>;
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        var text = (entry &&
+                    ((entry.content && entry.content.$t) ||
+                     (entry.summary && entry.summary.$t))) ||
+            '';
+        if (entry && entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + text + '</span>';
+            }
+          }
+        }
+        return text;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/comment/delete/'
+               + config.blogId + '/' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+</b:includable>
+          <b:includable id='threaded_comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <h4><data:post.commentLabelFull/>:</h4>
+
+    <div class='comments-content'>
+      <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threaded-comment-form'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    </div>
+    </div>
+  </div>
+</b:includable>
+        </b:widget>
+      </b:section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class='rp-footer'>
+    <div class='footer-brand'>ReducePic</div>
+    <p class='footer-tagline'>India&#8217;s fastest free image compressor. Secure, lossless and saves time for students, designers and website owners.</p>
+    
+    <div class='footer-heading'>Company</div>
+    <ul class='footer-links'>
+      <li><a href='https://nextbazzar.in'>NextBazzar</a></li>
+      <li><a href='/p/about-us.html'>About Us</a></li>
+      <li><a href='/p/contact-us.html'>Contact</a></li>
+      <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+      <li><a href='/p/terms-conditions.html'>Terms &amp; Conditions</a></li>
+    </ul>
+
+    <div class='footer-copyright'>
+      &#169; <span id='currentYear'/> ReducePic - Made In India 🇮🇳
     </div>
   </footer>
 
+  <!-- Compression Engine & Scripts -->
   <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  //<![CDATA[
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+  if (menuBtn && menuDropdown) {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menuDropdown.classList.toggle("show");
+    });
+    document.addEventListener("click", () => {
+      menuDropdown.classList.remove("show");
+    });
+  }
+
+  function initReducePicTool() {
+    const imageInput = document.getElementById('imageInput');
+    const compressBtn = document.getElementById('compressBtn');
+    const targetSizeInput = document.getElementById('targetSize');
+    const uploadBox = document.getElementById('uploadBox');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const previewContainer = document.getElementById('previewContainer');
+
+    if (!imageInput || !compressBtn || !uploadBox) return;
+
+    let images = [];
+
+    imageInput.addEventListener('change', async (e) => {
+      images = Array.from(e.target.files);
+      compressBtn.disabled = images.length === 0;
+      if (previewContainer) previewContainer.innerHTML = '';
+
+      for (const file of images) {
+        if (!file.type.startsWith('image/')) continue;
+        try {
+          const img = await loadImage(file);
+          const preview = createPreviewElement(file, img);
+          if (previewContainer) previewContainer.appendChild(preview);
+        } catch (err) {
+          console.error('Error loading image:', err);
+        }
+      }
+    });
+
+    uploadBox.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadBox.classList.add('dragover');
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+      uploadBox.classList.remove('dragover');
+    });
+
+    uploadBox.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadBox.classList.remove('dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        imageInput.files = e.dataTransfer.files;
+        imageInput.dispatchEvent(new Event('change'));
+      }
+    });
+
+    compressBtn.addEventListener('click', async () => {
+      const targetSizeKB = parseInt(targetSizeInput.value, 10);
+      if (isNaN(targetSizeKB) || targetSizeKB <= 0) {
+        alert('Please enter a valid target size in KB');
+        return;
+      }
+
+      if (loadingIndicator) loadingIndicator.style.display = 'block';
+      compressBtn.disabled = true;
+      const previews = previewContainer ? previewContainer.querySelectorAll('.preview-container') : [];
+
+      for (let i = 0; i < images.length; i++) {
+        const file = images[i];
+        const preview = previews[i];
+        try {
+          const { blob, url, dimensions } = await compressImageToTarget(
+            file,
+            targetSizeKB * 1024,
+            'jpeg'
+          );
+          if (preview) updatePreviewAfterCompression(preview, file, blob, url, dimensions);
+        } catch (err) {
+          if (preview) updatePreviewWithError(preview, err.message);
+        }
+      }
+
+      if (loadingIndicator) loadingIndicator.style.display = 'none';
+      compressBtn.disabled = false;
+    });
+
+    function createPreviewElement(file, img) {
+      const preview = document.createElement('div');
+      preview.className = 'preview-container';
+      preview.innerHTML = `
+        <img src="${URL.createObjectURL(file)}" alt="Preview">
+        <div class="preview-details">
+          <p class="preview-filename">${file.name}</p>
+          <div class="preview-stats">
+            <span>${formatFileSize(file.size)}</span>
+            <span>${img.width}×${img.height}px</span>
+          </div>
+        </div>
+        <div class="preview-actions">
+          <button class="download-btn" disabled><i class="fas fa-download"></i> Download</button>
+          <button class="remove-btn"><i class="fas fa-trash"></i> Remove</button>
+        </div>
+      `;
+
+      preview.querySelector('.remove-btn').addEventListener('click', () => {
+        preview.remove();
+        const index = Array.from(previewContainer.children).indexOf(preview);
+        if (index > -1) images.splice(index, 1);
+        if (images.length === 0) compressBtn.disabled = true;
+      });
+
+      return preview;
+    }
+
+    function updatePreviewAfterCompression(preview, originalFile, compressedBlob, url, dimensions) {
+      const downloadBtn = preview.querySelector('.download-btn');
+      const statsContainer = preview.querySelector('.preview-stats');
+      preview.querySelector('img').src = url;
+      statsContainer.innerHTML = `
+        <span><strong>${formatFileSize(originalFile.size)}</strong> → <strong>${formatFileSize(compressedBlob.size)}</strong></span>
+        <span style="color:#10b981;">${calculateReduction(originalFile.size, compressedBlob.size)}% smaller</span>
+        <span>${dimensions.width}×${dimensions.height}px</span>
+      `;
+      downloadBtn.disabled = false;
+      downloadBtn.onclick = () => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `compressed_${originalFile.name.replace(/\.\w+$/, '.jpg')}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      };
+    }
+
+    function updatePreviewWithError(preview, errorMessage) {
+      const statsContainer = preview.querySelector('.preview-stats');
+      statsContainer.innerHTML = `<span style="color: red">Error: ${errorMessage}</span>`;
+    }
+
+    async function loadImage(file) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Failed to load image'));
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    async function compressImageToTarget(file, targetBytes, outputFormat = 'jpeg') {
+      const img = await loadImage(file);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      let width = img.width;
+      let height = img.height;
+      const MAX_DIM = 2000;
+      const scale = Math.min(1, MAX_DIM / Math.max(width, height));
+      width = Math.round(width * scale);
+      height = Math.round(height * scale);
+      canvas.width = width;
+      canvas.height = height;
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
+
+      let bestBlob = null;
+      let bestQuality = 1.0;
+      let qualityMin = 0.4, qualityMax = 1.0;
+      const maxIterations = 10;
+
+      const tryBlob = async (q) =>
+        await new Promise((res) => canvas.toBlob(res, `image/${outputFormat}`, q));
+
+      const initialBlob = await tryBlob(1.0);
+      if (!initialBlob) throw new Error('Initial compression failed');
+      if (initialBlob.size <= targetBytes) bestBlob = initialBlob;
+
+      if (!bestBlob) {
+        for (let i = 0; i < maxIterations; i++) {
+          const q = (qualityMin + qualityMax) / 2;
+          const blob = await tryBlob(q);
+          if (!blob) throw new Error('Compression step failed');
+          if (blob.size <= targetBytes) {
+            bestBlob = blob;
+            bestQuality = q;
+            if (targetBytes - blob.size < targetBytes * 0.05) break;
+            qualityMin = q;
+          } else {
+            qualityMax = q;
+          }
+        }
+      }
+
+      while (!bestBlob && width > 100 && height > 100) {
+        width = Math.round(width * 0.9);
+        height = Math.round(height * 0.9);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        const blob = await tryBlob(0.9);
+        if (blob && blob.size <= targetBytes) {
+          bestBlob = blob;
+          bestQuality = 0.9;
+          break;
+        }
+      }
+
+      if (!bestBlob) throw new Error('Target size is too small for this resolution');
+
+      return {
+        blob: bestBlob,
+        url: URL.createObjectURL(bestBlob),
+        dimensions: { width, height },
+        qualityUsed: bestQuality.toFixed(2)
+      };
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function calculateReduction(originalSize, newSize) {
+      return Math.round((1 - newSize / originalSize) * 100);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReducePicTool);
+  } else {
+    initReducePicTool();
+  }
+  //]]>
   </script>
-  <script src="script/main.js" defer></script>
-  <script src="script/nav.js" defer></script>
 </body>
-</html>
+                  </html>
